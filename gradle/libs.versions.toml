@@ -31,4 +31,4 @@ androidx-navigation-ui = { module = "androidx.navigation:navigation-ui", version
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 navigation-safeargs = { id = "androidx.navigation.safeargs.kotlin", version.ref = "navigationSafeArgsKtx" }
-google-services = { id = "com.google.gms.google-services", version = "4.4.2" }
+google-services = { id = "com.google.gms.google-services", version = "4.4.4" }
