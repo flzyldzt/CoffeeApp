@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">CoffeeLab</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tv_coffee">Coffee</string>
+    <string name="tv_welcome">Hoş Geldiniz</string>
+    <string name="tv_login">Giriş Yap</string>
+    <string name="tv_signup">Üye Ol</string>
+    <string name="tv_signup_continue">Üye Olmadan Devam Et</string>
+</resources>

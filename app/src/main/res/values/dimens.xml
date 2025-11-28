@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--Margin Values-->
+    <dimen name="margin_1dp">1dp</dimen>
+    <dimen name="margin_2dp">2dp</dimen>
+    <dimen name="margin_4dp">4dp</dimen>
+    <dimen name="margin_6dp">6dp</dimen>
+    <dimen name="margin_8dp">8dp</dimen>
+    <dimen name="margin_10dp">10dp</dimen>
+    <dimen name="margin_12dp">12dp</dimen>
+    <dimen name="margin_16dp">16dp</dimen>
+    <dimen name="margin_20dp">20dp</dimen>
+    <dimen name="margin_32dp">32dp</dimen>
+    <dimen name="margin_64dp">64dp</dimen>
+    <dimen name="margin_96dp">96dp</dimen>
+
+    <!--Padding Values-->
+    <dimen name="padding_1dp">1dp</dimen>
+    <dimen name="padding_2dp">2dp</dimen>
+    <dimen name="padding_4dp">4dp</dimen>
+    <dimen name="padding_6dp">6dp</dimen>
+    <dimen name="padding_8dp">8dp</dimen>
+    <dimen name="padding_10dp">10dp</dimen>
+    <dimen name="padding_12dp">12dp</dimen>
+    <dimen name="padding_16dp">12dp</dimen>
+    <dimen name="padding_20dp">20dp</dimen>
+    <dimen name="padding_32dp">32dp</dimen>
+    <dimen name="padding_64dp">64dp</dimen>
+    <dimen name="padding_96dp">96dp</dimen>
+
+    <!--TextSize Values-->
+    <dimen name="text_size_8sp">8sp</dimen>
+    <dimen name="text_size_12sp">12sp</dimen>
+    <dimen name="text_size_14sp">14sp</dimen>
+    <dimen name="text_size_16sp">16sp</dimen>
+    <dimen name="text_size_20sp">20sp</dimen>
+    <dimen name="text_size_24sp">24sp</dimen>
+    <dimen name="text_size_32sp">32sp</dimen>
+    <dimen name="text_size_36sp">36sp</dimen>
+
+    <!--LineSpacingExtra Values-->
+    <dimen name="line_spacing_extra_0sp">0sp</dimen>
+    <dimen name="line_spacing_extra_2sp">2sp</dimen>
+    <dimen name="line_spacing_extra_4sp">4sp</dimen>
+    <dimen name="line_spacing_extra_8sp">8sp</dimen>
+    <dimen name="line_spacing_extra_12sp">12sp</dimen>
+    <dimen name="line_spacing_extra_16sp">16sp</dimen>
+
+    <!--Elevation Values-->
+    <dimen name="elevation_0dp">0dp</dimen>
+    <dimen name="elevation_2dp">2dp</dimen>
+    <dimen name="elevation_4dp">4dp</dimen>
+    <dimen name="elevation_6dp">6dp</dimen>
+    <dimen name="elevation_8dp">8dp</dimen>
+    <dimen name="elevation_60dp">60dp</dimen>
+    <dimen name="elevation_80dp">80dp</dimen>
+    <dimen name="elevation_100dp">100dp</dimen>
+    <dimen name="elevation_120dp">120dp</dimen>
+    <dimen name="elevation_160dp">160dp</dimen>
+    <dimen name="elevation_200dp">200dp</dimen>
+
+    <!--Radius Values-->
+    <dimen name="radius_0dp">0dp</dimen>
+    <dimen name="radius_2dp">2dp</dimen>
+    <dimen name="radius_4dp">4dp</dimen>
+    <dimen name="radius_6dp">6dp</dimen>
+    <dimen name="radius_8dp">8dp</dimen>
+    <dimen name="radius_10dp">10dp</dimen>
+    <dimen name="radius_12dp">12dp</dimen>
+    <dimen name="radius_16dp">16dp</dimen>
+    <dimen name="radius_20dp">20dp</dimen>
+
+    <!--Icon Size-->
+    <dimen name="icon_size_small_24dp">24dp</dimen>
+    <dimen name="icon_size_middle_32dp">32dp</dimen>
+    <dimen name="icon_size_large_64dp">64dp</dimen>
+    <dimen name="icon_size_xlarge_96dp">96dp</dimen>
+    <dimen name="icon_size_xxlarge_128dp">128dp</dimen>
+
+</resources>

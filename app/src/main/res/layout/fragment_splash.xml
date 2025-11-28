@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/img_bg_splash"
+    tools:context=".ui.splash.SplashFragment">
+
+    <ImageView
+        android:id="@+id/imgLogo"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_marginTop="@dimen/margin_32dp"
+        android:scaleX="1"
+        android:scaleY="1"
+        android:src="@drawable/img_app_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.4" />
+
+    <TextView
+        android:id="@+id/txtAppName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0"
+        android:letterSpacing="0.30"
+        android:shadowColor="#80000000"
+        android:shadowDx="0"
+        android:shadowDy="2"
+        android:shadowRadius="4"
+        android:text="@string/tv_coffee"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/text_size_32sp"
+        android:textStyle="bold"
+        android:translationY="-20dp"
+        app:layout_constraintEnd_toEndOf="@id/imgLogo"
+        app:layout_constraintStart_toStartOf="@id/imgLogo"
+        app:layout_constraintTop_toBottomOf="@id/imgLogo" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
