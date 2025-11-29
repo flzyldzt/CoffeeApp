@@ -11,6 +11,7 @@ import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.app.coffeeapp.R
 import com.app.coffeeapp.databinding.FragmentSplashBinding
 
@@ -69,7 +70,7 @@ class SplashFragment : Fragment() {
             requireActivity().setTheme(R.style.Theme_CoffeeApp)
 
             // Navigation ile ana ekrana geç
-            //findNavController().navigate(R.id.action_splashFragment_to_homeFragment)
+            findNavController().navigate(R.id.action_splashFragment_to_loginFragment)
         }, 2000)
     }
 

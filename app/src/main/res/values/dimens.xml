@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!--App Common Size-->
+    <dimen name="common_view_height">56dp</dimen> <!--EditText,TextView-->
+    <dimen name="common_view_radius">4dp</dimen>  <!--CardView,EditText,TextView,Layout..-->
+    <dimen name="common_icon_size">24dp</dimen>   <!--WidhtxHeight Radio/Checkbox-->
+    <dimen name="common_line_border">2dp</dimen>  <!--Border For: TextView,Button,Background.-->
+    <dimen name="common_page_top_space">20dp</dimen>
+    <dimen name="common_page_bottom_space">32dp</dimen>
+    <dimen name="common_divider_height">1dp</dimen>
+
     <!--Margin Values-->
     <dimen name="margin_1dp">1dp</dimen>
     <dimen name="margin_2dp">2dp</dimen>

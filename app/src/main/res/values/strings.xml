@@ -1,9 +1,25 @@
 <resources>
     <string name="app_name">CoffeeLab</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Textview -->
     <string name="tv_coffee">Coffee</string>
     <string name="tv_welcome">Hoş Geldiniz</string>
     <string name="tv_login">Giriş Yap</string>
     <string name="tv_signup">Üye Ol</string>
     <string name="tv_signup_continue">Üye Olmadan Devam Et</string>
+    <string name="tv_forgot_password">Şifreni mi unuttun?</string>
+    <string name="tv_account_login">Henüz bir hesabın yok mu?</string>
+    <string name="tv_kvkk">KVKK metnini okudum,onaylıyorum.</string>
+
+    <!-- Edittext -->
+    <string name="et_name">Ad</string>
+    <string name="et_surname">Soyad</string>
+    <string name="et_email">Email</string>
+    <string name="et_birth">Doğum Tarihi</string>
+    <string name="et_password">Parola</string>
+    <string name="et_again_password">Parola Yeniden</string>
+
+    <!-- Button -->
+    <string name="btn_log_in">Giriş</string>
 </resources>

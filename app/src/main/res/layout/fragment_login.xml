@@ -1,87 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/app_bg_color"
     tools:context=".ui.authentication.LoginFragment">
 
     <ImageView
         android:id="@+id/imgAppName"
-        android:layout_width="320dp"
-        android:layout_height="152dp"
-        android:layout_marginTop="164dp"
-        android:contentDescription="TODO"
+        android:layout_width="292dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="@dimen/margin_64dp"
         android:src="@drawable/img_app_name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_16dp"
+        android:layout_marginTop="@dimen/margin_64dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="@dimen/radius_16dp"
+        app:cardElevation="@dimen/elevation_6dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgAppName">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_margin="@dimen/margin_6dp"
+            android:orientation="vertical"
+            android:padding="@dimen/padding_16dp">
+
+            <ImageView
+                android:id="@+id/imgIcon"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/icon_size_xxlarge_128dp"
+                android:src="@drawable/img_coffee_cup"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.494"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/etEmail"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_view_height"
+                android:layout_marginTop="@dimen/margin_16dp"
+                android:autofillHints="name"
+                android:background="@drawable/bg_edittext_frame"
+                android:drawableStart="@drawable/ic_email"
+                android:drawableTint="@color/app_main_color"
+                android:drawablePadding="@dimen/padding_8dp"
+                android:hint="@string/et_email"
+                android:inputType="textEmailAddress"
+                android:padding="@dimen/padding_8dp"
+                android:textColorHint="@color/light_gray" />
+
+            <EditText
+                android:id="@+id/etPassword"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_view_height"
+                android:layout_marginTop="@dimen/margin_32dp"
+                android:autofillHints="password"
+                android:background="@drawable/bg_edittext_frame"
+                android:drawableStart="@drawable/ic_password"
+                android:drawableTint="@color/app_main_color"
+                android:drawablePadding="@dimen/padding_8dp"
+                android:hint="@string/et_password"
+                android:inputType="textPassword"
+                android:padding="@dimen/padding_8dp"
+                android:textColorHint="@color/light_gray" />
+
+            <TextView
+                android:id="@+id/tvForgetPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_margin="@dimen/margin_6dp"
+                android:text="@string/tv_forgot_password"
+                android:textColor="@color/app_main_light_color"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btnLogIn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_20dp"
+                android:background="@drawable/bg_button"
+                android:elevation="@dimen/elevation_6dp"
+                android:text="@string/btn_log_in"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_20sp" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
     <TextView
-        android:id="@+id/tvWelcome"
+        android:id="@+id/tvAccount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_64dp"
-        android:text="@string/tv_welcome"
-        android:textColor="@color/dark_gray"
-        android:textSize="@dimen/text_size_24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgAppName" />
-
-    <Button
-        android:id="@+id/btnLogin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/margin_32dp"
-        android:layout_marginTop="@dimen/margin_20dp"
-        android:background="@drawable/bg_button"
-        android:elevation="@dimen/elevation_6dp"
-        android:text="@string/tv_login"
-        android:textColor="@color/white"
+        android:text="@string/tv_account_login"
+        android:textAllCaps="false"
+        android:textColor="@color/app_main_light_color"
         android:textSize="@dimen/text_size_16sp"
+        app:layout_constraintBottom_toTopOf="@+id/tvSignUp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvWelcome" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/btnSignup"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/tvSignUp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/margin_32dp"
-        android:layout_marginTop="@dimen/margin_20dp"
-        android:background="@drawable/bg_button_frame"
-        android:elevation="@dimen/elevation_6dp"
+        android:layout_marginBottom="@dimen/margin_20dp"
         android:text="@string/tv_signup"
-        android:textColor="@color/dark_gray"
-        android:textSize="@dimen/text_size_16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
-
-    <TextView
-        android:id="@+id/tvSignUpContinue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_64dp"
-        android:text="@string/tv_signup_continue"
-        android:textColor="@color/dark_gray"
+        android:textColor="@color/app_main_light_color"
         android:textSize="@dimen/text_size_16sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnSignup" />
-
-    <View
-        android:layout_width="0dp"
-        android:layout_height="2dp"
-        android:background="@color/dark_gray"
-        app:layout_constraintEnd_toEndOf="@id/tvSignUpContinue"
-        app:layout_constraintStart_toStartOf="@id/tvSignUpContinue"
-        app:layout_constraintTop_toBottomOf="@id/tvSignUpContinue" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

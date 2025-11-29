@@ -53,6 +53,8 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
 
     //Navigation
-    implementation(libs.navigation.fragment)
-    implementation(libs.androidx.navigation.ui)
+    implementation(libs.navigation.ui.ktx)
+    implementation(libs.navigation.fragment.ktx)
+
+
 }
