@@ -11,6 +11,7 @@
     <string name="tv_forgot_password">Şifreni mi unuttun?</string>
     <string name="tv_account_login">Henüz bir hesabın yok mu?</string>
     <string name="tv_kvkk">KVKK metnini okudum,onaylıyorum.</string>
+    <string name="tv_explanation">E-ticaret sitemize giriş yaparken oluşturduğunuz şifreyi kullanabilirsiniz.</string>
 
     <!-- Edittext -->
     <string name="et_name">Ad</string>
@@ -22,4 +23,5 @@
 
     <!-- Button -->
     <string name="btn_log_in">Giriş</string>
+    <string name="btn_update">Güncelle</string>
 </resources>

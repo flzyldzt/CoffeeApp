@@ -32,6 +32,10 @@ class OpeningFragment : Fragment() {
         btnLogin.setOnClickListener {
             findNavController().navigate(R.id.action_openingFragment_to_loginFragment)
         }
+
+        btnSignup.setOnClickListener {
+            findNavController().navigate(R.id.action_openingFragment_to_signupFragment)
+        }
     }
 
     override fun onDestroyView() {

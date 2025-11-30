@@ -23,12 +23,32 @@
         <action
             android:id="@+id/action_openingFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_openingFragment_to_signupFragment"
+            app:destination="@id/signupFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.app.coffeeapp.ui.authentication.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_signupFragment"
+            app:destination="@id/signupFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_passwordFragment"
+            app:destination="@id/passwordFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signupFragment"
+        android:name="com.app.coffeeapp.ui.authentication.SignupFragment"
+        android:label="fragment_signup"
+        tools:layout="@layout/fragment_signup" />
+    <fragment
+        android:id="@+id/passwordFragment"
+        android:name="com.app.coffeeapp.ui.authentication.PasswordFragment"
+        android:label="fragment_password"
+        tools:layout="@layout/fragment_password" />
 
 </navigation>

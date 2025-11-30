@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_10dp"
         android:text="@string/tv_signup"
-        android:textColor="@color/gray"
+        android:textColor="@color/black"
         android:textSize="@dimen/text_size_20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -47,6 +47,9 @@
                 app:boxBackgroundMode="outline"
                 app:boxStrokeColor="@color/app_main_color"
                 app:startIconDrawable="@drawable/ic_person"
+                app:expandedHintEnabled="false"
+                app:hintAnimationEnabled="false"
+                app:hintEnabled="true"
                 app:startIconTint="@color/app_main_color">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -64,6 +67,9 @@
                 app:boxBackgroundMode="outline"
                 app:boxStrokeColor="@color/app_main_color"
                 app:startIconDrawable="@drawable/id_card"
+                app:expandedHintEnabled="false"
+                app:hintAnimationEnabled="false"
+                app:hintEnabled="true"
                 app:startIconTint="@color/app_main_color">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -81,6 +87,9 @@
                 app:boxBackgroundMode="outline"
                 app:boxStrokeColor="@color/app_main_color"
                 app:startIconDrawable="@drawable/ic_email"
+                app:expandedHintEnabled="false"
+                app:hintAnimationEnabled="false"
+                app:hintEnabled="true"
                 app:startIconTint="@color/app_main_color">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -97,9 +106,11 @@
                 app:boxBackgroundColor="@color/white"
                 app:boxBackgroundMode="outline"
                 app:boxStrokeColor="@color/app_main_color"
-                app:endIconDrawable="@drawable/ic_info"
                 app:endIconTint="@color/app_main_color"
                 app:startIconDrawable="@drawable/ic_date"
+                app:expandedHintEnabled="false"
+                app:hintAnimationEnabled="false"
+                app:hintEnabled="true"
                 app:startIconTint="@color/app_main_color">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -121,7 +132,10 @@
                 app:endIconTint="@color/app_main_color"
                 app:startIconDrawable="@drawable/ic_password"
                 app:startIconTint="@color/app_main_color"
-                android:hint="@string/et_password" >
+                android:hint="@string/et_password"
+                app:expandedHintEnabled="false"
+                app:hintAnimationEnabled="false"
+                app:hintEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etPassword"
@@ -140,6 +154,9 @@
                 app:endIconMode="password_toggle"
                 app:endIconTint="@color/app_main_color"
                 app:startIconDrawable="@drawable/ic_password"
+                app:expandedHintEnabled="false"
+                app:hintAnimationEnabled="false"
+                app:hintEnabled="true"
                 app:startIconTint="@color/app_main_color">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -166,6 +183,7 @@
                 android:orientation="horizontal">
 
                 <ImageView
+                    android:id="@+id/imgInfo"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_margin="8dp"
@@ -173,10 +191,11 @@
                     app:tint="@color/black" />
 
                 <TextView
+                    android:id="@+id/tvExplanation"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="E-ticaret sitemize giriş yaparken oluşturduğunuz şifreyi kullanabilirsiniz."
+                    android:text="@string/tv_explanation"
                     android:textColor="@color/gray"
                     android:textSize="14sp" />
             </LinearLayout>
@@ -186,7 +205,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/tv_account_login"/>
+                android:text="@string/tv_kvkk" />
 
             <CheckBox
                 android:id="@+id/cbTerms"
