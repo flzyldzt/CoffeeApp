@@ -24,4 +24,9 @@
     <!-- Button -->
     <string name="btn_log_in">Giriş</string>
     <string name="btn_update">Güncelle</string>
+
+    <!-- Toast Message -->
+    <string name="toast_message_verification">Email doğrulaması gerekli.</string>
+    <string name="toast_message_email">Lütfen geçerli bir email adresi girin.</string>
+    <string name="toast_message_sent">Şifre sıfırlama e-postası gönderildi</string>
 </resources>

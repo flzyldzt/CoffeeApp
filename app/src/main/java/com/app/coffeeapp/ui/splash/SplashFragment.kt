@@ -70,7 +70,7 @@ class SplashFragment : Fragment() {
             requireActivity().setTheme(R.style.Theme_CoffeeApp)
 
             // Navigation ile ana ekrana geç
-            findNavController().navigate(R.id.action_splashFragment_to_loginFragment)
+            findNavController().navigate(R.id.action_splashFragment_to_authenticationMainFragment)
         }, 2000)
     }
 

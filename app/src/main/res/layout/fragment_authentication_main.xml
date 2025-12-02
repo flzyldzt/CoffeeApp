@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/app_bg_color"
-    tools:context=".ui.authentication.OpeningFragment">
+    tools:context=".ui.authentication.authenticationmain.AuthenticationMainFragment">
 
     <ImageView
         android:id="@+id/imgAppName"
@@ -55,7 +55,7 @@
         android:background="@drawable/bg_button_frame"
         android:elevation="@dimen/elevation_6dp"
         android:text="@string/tv_signup"
-        android:textColor="@color/dark_gray"
+        android:textColor="@color/white"
         android:textSize="@dimen/text_size_16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -82,5 +82,20 @@
         app:layout_constraintEnd_toEndOf="@id/tvSignUpContinue"
         app:layout_constraintStart_toStartOf="@id/tvSignUpContinue"
         app:layout_constraintTop_toBottomOf="@id/tvSignUpContinue" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:elevation="@dimen/elevation_8dp"
+        android:indeterminateTint="@color/app_main_color"
+        android:layout_marginHorizontal="@dimen/margin_20dp"
+        android:indeterminate="true"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
