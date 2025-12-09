@@ -11,9 +11,6 @@ import androidx.navigation.fragment.findNavController
 import com.app.coffeeapp.R
 import com.app.coffeeapp.databinding.FragmentLoginBinding
 import com.app.coffeeapp.util.Resource
-import com.app.coffeeapp.util.showToast
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -39,52 +36,55 @@ class LoginFragment : Fragment() {
 
     private fun click() = with(binding) {
         btnLogIn.setOnClickListener {
-            viewModel.login(
-                email = etEmail.text.toString(),
-                password = etPassword.text.toString()
-            )
+            val email = etEmail.text.toString().trim()
+            val password = etPassword.text.toString().trim()
+            viewModel.login(email, password)
         }
 
         tvSignUp.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_signupFragment)
         }
 
-        tvForgetPassword.setOnClickListener {
+        binding.tvForgetPassword.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_passwordFragment)
         }
     }
 
     private fun observe() = with(viewModel) {
-        loginResult.observe(viewLifecycleOwner) { state ->
-            when (state) {
-                is Resource.Loading -> showLoadingState()
-                is Resource.Success -> showSuccessState(state.data)
-                is Resource.Error -> showErrorState(state.message)
+        viewModel.loginState.observe(viewLifecycleOwner) { result ->
+            when (result) {
+                is Resource.Loading -> {
+                    binding.progressBar.visibility = View.VISIBLE
+                    binding.btnLogIn.isEnabled = false
+                }
+
+                is Resource.Success -> {
+                    binding.progressBar.visibility = View.GONE
+                    binding.btnLogIn.isEnabled = true
+
+                    Toast.makeText(
+                        requireContext(),
+                        "Giriş başarılı!",
+                        Toast.LENGTH_SHORT
+                    ).show()
+
+                    // Giriş başarılı → Anasayfaya gidebilirsin
+                    // findNavController().navigate(R.id.action_loginFragment_to_homeMainFragment)
+                }
+
+                is Resource.Error -> {
+                    binding.progressBar.visibility = View.GONE
+                    binding.btnLogIn.isEnabled = true
+                    Toast.makeText(
+                        requireContext(),
+                        result.message ?: "Bir hata oluştu",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
             }
         }
     }
 
-    private fun showLoadingState() = with(binding) {
-        btnLogIn.isEnabled = false
-        progressBar.visibility = View.VISIBLE
-    }
-
-    private fun showSuccessState(user: FirebaseUser) = with(binding) {
-        btnLogIn.isEnabled = true
-        progressBar.visibility = View.GONE
-        if (user.isEmailVerified) {
-            //findNavController().setGraph(R.navigation.nav_graph_home)
-        } else {
-            requireContext().showToast(R.string.toast_message_verification)
-            FirebaseAuth.getInstance().signOut()
-        }
-    }
-
-    private fun showErrorState(message: String) = with(binding) {
-        btnLogIn.isEnabled = true
-        progressBar.visibility = View.GONE //gizle
-        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
-    }
 
     override fun onDestroyView() {
         super.onDestroyView()

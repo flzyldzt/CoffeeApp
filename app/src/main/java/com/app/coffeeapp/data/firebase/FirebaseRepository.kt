@@ -1,11 +1,11 @@
 package com.app.coffeeapp.data.firebase
 
+import com.app.coffeeapp.data.firebase.model.UserResponse
 import com.google.firebase.auth.FirebaseUser
 
 interface FirebaseRepository {
-    fun login(email: String, password: String, callback: (Result<FirebaseUser>) -> Unit)
-    fun register(email: String, password: String, callback: (Result<FirebaseUser>) -> Unit)
-    fun resetPassword(email: String, callback: (Result<Unit>) -> Unit)
-    fun logout()
-    fun getCurrentUser(): FirebaseUser?
+    suspend fun register(email: String, password: String, birthDate: String): Result<FirebaseUser>
+    suspend fun login(email: String, password: String): Result<FirebaseUser>
+    suspend fun getUserProfile(uid: String): Result<UserResponse>
+    suspend fun updateUserProfile(uid: String, data: Map<String, Any>): Result<Boolean>
 }

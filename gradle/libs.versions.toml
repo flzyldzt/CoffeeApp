@@ -9,21 +9,19 @@ appcompat = "1.7.1"
 material = "1.13.0"
 activity = "1.7.2"
 constraintlayout = "2.2.1"
-navigation = "2.6.0"
+navigation = "2.9.6"
 hilt = "2.50"
 hiltCompiler = "2.50"
 roomVersion = "2.6.1"
 firebaseBom = "33.12.0"
 firebaseAnalytics = "22.4.0"
 firebaseAuth = "23.2.0"
+firebaseFirestore = "24.8.0"
 coroutines = "1.8.0"
 retrofit = "2.11.0"
 retrofitConverterGson = "2.11.0"
 okhttpLogging = "4.11.0"
 glide = "4.16.0"
-navigationFragment = "2.8.4"
-navigationSafeArgsKtx = "2.8.4"
-navigationUi = "2.8.4"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -49,6 +47,7 @@ room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "roomVers
 room-testing = { group = "androidx.room", name = "room-testing", version.ref = "roomVersion" }
 firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebaseBom" }
 firebase-analytics = { group = "com.google.firebase", name = "firebase-analytics", version.ref = "firebaseAnalytics" }
+firebase-firestore = { group = "com.google.firebase", name = "firebase-firestore", version.ref = "firebaseFirestore" }
 firebase-auth = { group = "com.google.firebase", name = "firebase-auth", version.ref = "firebaseAuth" }
 kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutines" }
 kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines" }

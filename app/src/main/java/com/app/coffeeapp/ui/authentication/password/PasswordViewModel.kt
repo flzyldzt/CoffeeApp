@@ -10,21 +10,10 @@ import javax.inject.Inject
 
 @HiltViewModel
 class PasswordViewModel @Inject constructor(
-    private val repository: FirebaseRepository
+    private val repo: FirebaseRepository
 ) : ViewModel() {
 
-    private val _resetResult = MutableLiveData<Resource<Unit>>()
-    val resetResult: LiveData<Resource<Unit>> = _resetResult
+    private val _passwordState = MutableLiveData<Resource<Unit>>()
+    val passwordState: LiveData<Resource<Unit>> = _passwordState
 
-    fun resetPassword(email: String) {
-        _resetResult.value = Resource.Loading
-        repository.resetPassword(email) { result ->
-            _resetResult.postValue(
-                result.fold(
-                    onSuccess = { Resource.Success(Unit) },
-                    onFailure = { Resource.Error(it.message ?: "Unknown error") }
-                )
-            )
-        }
-    }
 }

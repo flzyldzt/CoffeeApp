@@ -24,7 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/margin_16dp"
-        android:layout_marginTop="@dimen/margin_4dp"
+        android:layout_marginTop="@dimen/margin_20dp"
         app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="@dimen/radius_16dp"
         app:cardElevation="@dimen/elevation_6dp"
@@ -36,21 +36,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="@dimen/padding_16dp">
+            android:padding="@dimen/padding_10dp">
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_4dp"
                 android:hint="@string/et_name"
-                app:boxBackgroundColor="@color/white"
-                app:boxBackgroundMode="outline"
-                app:boxStrokeColor="@color/app_main_color"
+                style="@style/Custom_TextInputLayout"
                 app:startIconDrawable="@drawable/ic_person"
                 app:expandedHintEnabled="false"
                 app:hintAnimationEnabled="false"
-                app:hintEnabled="true"
-                app:startIconTint="@color/app_main_color">
+                app:hintEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etName"
@@ -63,14 +60,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_16dp"
                 android:hint="@string/et_surname"
-                app:boxBackgroundColor="@color/white"
-                app:boxBackgroundMode="outline"
-                app:boxStrokeColor="@color/app_main_color"
-                app:startIconDrawable="@drawable/id_card"
+                style="@style/Custom_TextInputLayout"
+                app:hintEnabled="true"
                 app:expandedHintEnabled="false"
                 app:hintAnimationEnabled="false"
-                app:hintEnabled="true"
-                app:startIconTint="@color/app_main_color">
+                app:startIconDrawable="@drawable/ic_card">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etSurname"
@@ -83,14 +77,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_16dp"
                 android:hint="@string/et_email"
-                app:boxBackgroundColor="@color/white"
-                app:boxBackgroundMode="outline"
-                app:boxStrokeColor="@color/app_main_color"
+                style="@style/Custom_TextInputLayout"
                 app:startIconDrawable="@drawable/ic_email"
                 app:expandedHintEnabled="false"
                 app:hintAnimationEnabled="false"
-                app:hintEnabled="true"
-                app:startIconTint="@color/app_main_color">
+                app:hintEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etEmail"
@@ -103,15 +94,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_16dp"
                 android:hint="@string/et_birth"
-                app:boxBackgroundColor="@color/white"
-                app:boxBackgroundMode="outline"
-                app:boxStrokeColor="@color/app_main_color"
-                app:endIconTint="@color/app_main_color"
                 app:startIconDrawable="@drawable/ic_date"
                 app:expandedHintEnabled="false"
                 app:hintAnimationEnabled="false"
                 app:hintEnabled="true"
-                app:startIconTint="@color/app_main_color">
+                style="@style/Custom_TextInputLayout">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etBirth"
@@ -125,13 +112,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_16dp"
                 android:inputType="textPassword"
-                app:boxBackgroundColor="@color/white"
-                app:boxBackgroundMode="outline"
-                app:boxStrokeColor="@color/app_main_color"
                 app:endIconMode="password_toggle"
-                app:endIconTint="@color/app_main_color"
-                app:startIconDrawable="@drawable/ic_password"
-                app:startIconTint="@color/app_main_color"
+                style="@style/Custom_TextInputLayout"
+                app:endIconTint="@color/gray"
+                app:startIconDrawable="@drawable/ic_lock"
                 android:hint="@string/et_password"
                 app:expandedHintEnabled="false"
                 app:hintAnimationEnabled="false"
@@ -148,16 +132,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_16dp"
                 android:hint="@string/et_again_password"
-                app:boxBackgroundColor="@color/white"
-                app:boxBackgroundMode="outline"
-                app:boxStrokeColor="@color/app_main_color"
                 app:endIconMode="password_toggle"
-                app:endIconTint="@color/app_main_color"
-                app:startIconDrawable="@drawable/ic_password"
+                style="@style/Custom_TextInputLayout"
+                app:endIconTint="@color/gray"
                 app:expandedHintEnabled="false"
                 app:hintAnimationEnabled="false"
                 app:hintEnabled="true"
-                app:startIconTint="@color/app_main_color">
+                app:startIconDrawable="@drawable/ic_lock">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etAgainPassword"
@@ -171,34 +152,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_12dp"
-                android:text="Şifreniz en az 1 sayı, 1 küçük harf ve 1 büyük harf içermeli ve 8-25 karakter arasında olmalı."
+                android:text="@string/tv_password_condition"
                 android:textColor="@color/gray"
                 android:textSize="14sp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/imgInfo"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_margin="8dp"
-                    android:src="@drawable/ic_info"
-                    app:tint="@color/black" />
-
-                <TextView
-                    android:id="@+id/tvExplanation"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/tv_explanation"
-                    android:textColor="@color/gray"
-                    android:textSize="14sp" />
-            </LinearLayout>
 
             <CheckBox
                 android:id="@+id/cbKvkk"
@@ -212,11 +168,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Üyelik ve Kullanıcı Sözleşmesini okudum, onaylıyorum." />
+                android:text="@string/tv_membership_agreement" />
 
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnSignup"
+        style="@style/Custom_Button"
+        android:layout_marginHorizontal="@dimen/margin_16dp"
+        android:layout_marginTop="@dimen/margin_32dp"
+        android:text="@string/btn_signup"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
     <ProgressBar
         android:id="@+id/progressBar"

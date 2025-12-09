@@ -14,11 +14,13 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.app.coffeeapp.R
 import com.app.coffeeapp.databinding.FragmentSplashBinding
+import com.google.firebase.auth.FirebaseAuth
 
 class SplashFragment : Fragment() {
 
     private var _binding: FragmentSplashBinding? = null
     private val binding get() = _binding!!
+    private val auth by lazy { FirebaseAuth.getInstance() }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -69,8 +71,15 @@ class SplashFragment : Fragment() {
             // Normal temaya dön
             requireActivity().setTheme(R.style.Theme_CoffeeApp)
 
-            // Navigation ile ana ekrana geç
-            findNavController().navigate(R.id.action_splashFragment_to_authenticationMainFragment)
+            val currentUser = auth.currentUser
+
+            if (currentUser != null) {
+                // Kullanıcı zaten giriş yapmış → HomeMainFragment
+                //findNavController().navigate(R.id.action_splashFragment_to_homeMainFragment)
+            } else {
+                // Giriş yapılmamış → Login/Signup akışı
+                findNavController().navigate(R.id.action_splashFragment_to_authenticationMainFragment)
+            }
         }, 2000)
     }
 

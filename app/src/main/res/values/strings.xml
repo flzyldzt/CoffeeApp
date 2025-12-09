@@ -12,6 +12,8 @@
     <string name="tv_account_login">Henüz bir hesabın yok mu?</string>
     <string name="tv_kvkk">KVKK metnini okudum,onaylıyorum.</string>
     <string name="tv_explanation">E-ticaret sitemize giriş yaparken oluşturduğunuz şifreyi kullanabilirsiniz.</string>
+    <string name="tv_membership_agreement">Üyelik ve Kullanıcı Sözleşmesini okudum, onaylıyorum.</string>
+    <string name="tv_password_condition">Şifreniz en az 1 sayı, 1 küçük harf ve 1 büyük harf içermeli ve 8-25 karakter arasında olmalı.</string>
 
     <!-- Edittext -->
     <string name="et_name">Ad</string>
@@ -24,6 +26,7 @@
     <!-- Button -->
     <string name="btn_log_in">Giriş</string>
     <string name="btn_update">Güncelle</string>
+    <string name="btn_signup">Üye ol</string>
 
     <!-- Toast Message -->
     <string name="toast_message_verification">Email doğrulaması gerekli.</string>

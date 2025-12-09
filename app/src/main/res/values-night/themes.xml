@@ -4,4 +4,17 @@
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
     </style>
+
+    <style name="Custom_Button">
+        <item name="android:background">@drawable/bg_button_dark</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/text_size_20sp</item>
+    </style>
+
+    <style name="Custom_TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxBackgroundColor">@color/gray</item>
+        <item name="boxStrokeColor">@color/dark_gray</item>
+        <item name="hintTextColor">@color/white</item>
+        <item name="startIconTint">@color/app_main_light_color</item>
+    </style>
 </resources>

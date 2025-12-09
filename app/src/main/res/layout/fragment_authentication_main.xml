@@ -31,32 +31,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgAppName" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnLogin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/margin_32dp"
         android:layout_marginTop="@dimen/margin_20dp"
-        android:background="@drawable/bg_button"
-        android:elevation="@dimen/elevation_6dp"
         android:text="@string/tv_login"
-        android:textColor="@color/white"
-        android:textSize="@dimen/text_size_16sp"
+        style="@style/Custom_Button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvWelcome" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnSignup"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/margin_32dp"
         android:layout_marginTop="@dimen/margin_20dp"
-        android:background="@drawable/bg_button_frame"
-        android:elevation="@dimen/elevation_6dp"
         android:text="@string/tv_signup"
-        android:textColor="@color/white"
-        android:textSize="@dimen/text_size_16sp"
+        style="@style/Custom_Button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
