@@ -1,5 +1,6 @@
 package com.app.coffeeapp.data.firebase
 
+import com.app.coffeeapp.data.firebase.model.RegisteredUserInfoRequest
 import com.app.coffeeapp.data.firebase.model.UserResponse
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -12,25 +13,16 @@ class FirebaseRepositoryImpl @Inject constructor(
     private val firestore: FirebaseFirestore
 ) : FirebaseRepository {
 
-    override suspend fun register(
-        email: String,
-        password: String,
-        birthDate: String
+    override suspend fun callRegisterServices(
+        request: RegisteredUserInfoRequest
     ): Result<FirebaseUser> {
         return try {
-            val result = auth.createUserWithEmailAndPassword(email, password).await()
-            val firebaseUser = result.user ?: return Result.failure(Exception("User is null"))
-            // Firestore user doc
-            val userResponse = UserResponse(
-                uid = firebaseUser.uid,
-                email = email,
-                birthDate = birthDate,
-                createdAt = System.currentTimeMillis()
-            )
-            firestore.collection("users").document(firebaseUser.uid)
-                .set(userResponse)
-                .await()
-            Result.success(firebaseUser)
+            val result = auth.createUserWithEmailAndPassword(request.email, request.password).await()
+            val registeredUser = result.user ?: return Result.failure(Exception("User is null"))
+            //TODO Bu kısımda bilgileri alınan kullanıcıların bilgileri
+            // firestore da başka bir tabloya yazılacak daha sonra success edilecek.
+
+            Result.success(registeredUser)
         } catch (e: Exception) {
             Result.failure(e)
         }

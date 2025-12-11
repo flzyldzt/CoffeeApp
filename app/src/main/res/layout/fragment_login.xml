@@ -78,6 +78,11 @@
                 android:hint="@string/et_password"
                 android:inputType="textPassword"
                 android:padding="@dimen/padding_8dp"
+                app:endIconMode="password_toggle"
+                app:endIconTint="@color/gray"
+                app:expandedHintEnabled="false"
+                app:hintAnimationEnabled="false"
+                app:hintEnabled="true"
                 android:textColorHint="@color/light_gray" />
 
             <TextView

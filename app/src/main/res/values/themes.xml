@@ -1,8 +1,7 @@
 <resources>
     <!-- Base application theme. -->
     <style name="Base.Theme.CoffeeApp" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="android:textCursorDrawable">@drawable/custom_cursor</item>
     </style>
 
     <!-- Splash Fragment için tema -->

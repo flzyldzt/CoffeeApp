@@ -70,16 +70,7 @@ class SplashFragment : Fragment() {
         Handler(Looper.getMainLooper()).postDelayed({
             // Normal temaya dön
             requireActivity().setTheme(R.style.Theme_CoffeeApp)
-
-            val currentUser = auth.currentUser
-
-            if (currentUser != null) {
-                // Kullanıcı zaten giriş yapmış → HomeMainFragment
-                //findNavController().navigate(R.id.action_splashFragment_to_homeMainFragment)
-            } else {
-                // Giriş yapılmamış → Login/Signup akışı
-                findNavController().navigate(R.id.action_splashFragment_to_authenticationMainFragment)
-            }
+            findNavController().navigate(R.id.action_splashFragment_to_authenticationMainFragment)
         }, 2000)
     }
 

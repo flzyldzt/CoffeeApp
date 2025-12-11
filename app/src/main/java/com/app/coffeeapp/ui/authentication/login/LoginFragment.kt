@@ -81,6 +81,8 @@ class LoginFragment : Fragment() {
                         Toast.LENGTH_LONG
                     ).show()
                 }
+
+                else -> Unit
             }
         }
     }

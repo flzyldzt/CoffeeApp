@@ -28,17 +28,7 @@ class AuthenticationMainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        autoLoginCheck()
         clicks()
-    }
-
-    private fun autoLoginCheck() {
-        val currentUser = auth.currentUser
-
-        if (currentUser != null) {
-            // Kullanıcı daha önce giriş yapmış → direkt HomeMain'e git
-            //findNavController().navigate(R.id.action_authenticationMainFragment_to_homeMainFragment)
-        }
     }
 
     private fun clicks() = with(binding) {
