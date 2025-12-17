@@ -51,7 +51,7 @@ class LoginFragment : Fragment() {
     }
 
     private fun observe() = with(viewModel) {
-        viewModel.loginState.observe(viewLifecycleOwner) { result ->
+        loginState.observe(viewLifecycleOwner) { result ->
             when (result) {
                 is Resource.Loading -> {
                     binding.progressBar.visibility = View.VISIBLE
@@ -68,8 +68,9 @@ class LoginFragment : Fragment() {
                         Toast.LENGTH_SHORT
                     ).show()
 
-                    // Giriş başarılı → Anasayfaya gidebilirsin
-                    // findNavController().navigate(R.id.action_loginFragment_to_homeMainFragment)
+                    findNavController().navigate(
+                        R.id.action_loginFragment_to_home_nav_graph
+                    )
                 }
 
                 is Resource.Error -> {

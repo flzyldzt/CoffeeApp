@@ -14,6 +14,13 @@
     <string name="tv_explanation">E-ticaret sitemize giriş yaparken oluşturduğunuz şifreyi kullanabilirsiniz.</string>
     <string name="tv_membership_agreement">Üyelik ve Kullanıcı Sözleşmesini okudum, onaylıyorum.</string>
     <string name="tv_password_condition">Şifreniz en az 1 sayı, 1 küçük harf ve 1 büyük harf içermeli ve 8-25 karakter arasında olmalı.</string>
+    <string name="tv_hello_name">Merhaba,Filiz</string>
+    <string name="tv_upload_TL">TL Yükle</string>
+    <string name="tv_coupons">Kuponlarım</string>
+    <string name="tv_giftcards">GiftCards</string>
+    <string name="tv_campaigns">Kampanyalar</string>
+    <string name="tv_announcements">Duyurular</string>
+    <string name="tv_featured_product_name">Product Name</string>
 
     <!-- Edittext -->
     <string name="et_name">Ad</string>
@@ -32,4 +39,10 @@
     <string name="toast_message_verification">Email doğrulaması gerekli.</string>
     <string name="toast_message_email">Lütfen geçerli bir email adresi girin.</string>
     <string name="toast_message_sent">Şifre sıfırlama e-postası gönderildi</string>
+
+    <!-- Bottom View Name-->
+    <string name="tab_dashboard">Anasayfa</string>
+    <string name="tab_stores">Mağazalar</string>
+    <string name="tab_selling">Sipariş Ver</string>
+    <string name="tab_more">Diğer</string>
 </resources>

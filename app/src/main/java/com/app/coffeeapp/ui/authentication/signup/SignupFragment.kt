@@ -10,6 +10,7 @@ import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.app.coffeeapp.R
 import com.app.coffeeapp.databinding.FragmentSignupBinding
 import com.app.coffeeapp.util.Resource
 import dagger.hilt.android.AndroidEntryPoint
@@ -76,15 +77,10 @@ class SignupFragment : Fragment() {
 
                 is Resource.Success -> {
                     binding.progressBar.visibility = View.GONE
-                    //binding.btnSignup.isEnabled = true
 
-//                    val email = binding.etEmail.text.toString().trim()
-//                    val password = binding.etPassword.text.toString().trim()
-
-                    setRegisterState(Resource.Idle())
-                    val action = SignupFragmentDirections
-                        .actionSignupFragmentToLoginFragment()
-                    findNavController().navigate(action)
+                    findNavController().navigate(
+                        R.id.action_signupFragment_to_home_nav_graph
+                    )
                 }
 
                 is Resource.Error -> {

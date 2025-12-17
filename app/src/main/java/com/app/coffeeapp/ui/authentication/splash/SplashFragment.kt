@@ -1,4 +1,4 @@
-package com.app.coffeeapp.ui.splash
+package com.app.coffeeapp.ui.authentication.splash
 
 import android.os.Bundle
 import android.os.Handler
@@ -15,7 +15,9 @@ import androidx.navigation.fragment.findNavController
 import com.app.coffeeapp.R
 import com.app.coffeeapp.databinding.FragmentSplashBinding
 import com.google.firebase.auth.FirebaseAuth
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SplashFragment : Fragment() {
 
     private var _binding: FragmentSplashBinding? = null
@@ -68,11 +70,22 @@ class SplashFragment : Fragment() {
 
     private fun navigation() {
         Handler(Looper.getMainLooper()).postDelayed({
-            // Normal temaya dön
             requireActivity().setTheme(R.style.Theme_CoffeeApp)
-            findNavController().navigate(R.id.action_splashFragment_to_authenticationMainFragment)
+
+            val isLoggedIn = auth.currentUser != null //daha önce giriş yapılmış
+
+            if (isLoggedIn) {
+                findNavController().navigate(
+                    R.id.action_splashFragment_to_home_nav_graph
+                )
+            } else {
+                findNavController().navigate(
+                    R.id.action_splashFragment_to_authenticationMainFragment
+                )
+            }
         }, 2000)
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

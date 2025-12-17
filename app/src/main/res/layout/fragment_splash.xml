@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/img_bg_splash"
-    tools:context=".ui.splash.SplashFragment">
+    tools:context=".ui.authentication.splash.SplashFragment">
 
     <ImageView
         android:id="@+id/imgLogo"

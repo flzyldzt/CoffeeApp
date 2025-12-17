@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <item name="spacing_0dp" type="dimen">0dp</item>
+    <item name="default_bottom_height" type="dimen">70dp</item>
 
     <!--App Common Size-->
     <dimen name="common_view_height">56dp</dimen> <!--EditText,TextView-->
@@ -79,6 +81,7 @@
     <dimen name="radius_12dp">12dp</dimen>
     <dimen name="radius_16dp">16dp</dimen>
     <dimen name="radius_20dp">20dp</dimen>
+    <dimen name="radius_30dp">30dp</dimen>
 
     <!--Icon Size-->
     <dimen name="icon_size_small_24dp">24dp</dimen>
