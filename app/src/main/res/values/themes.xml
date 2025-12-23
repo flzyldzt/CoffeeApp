@@ -28,9 +28,15 @@
         <item name="startIconTint">@color/app_main_color</item>
     </style>
 
-    <style name="Custom_Text">
+    <style name="Custom_Text_Type_16sp">
         <item name="android:textColor">@color/black</item>
-        <item name="android:textSize">@dimen/text_size_20sp</item>
+        <item name="android:textSize">@dimen/text_size_16sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Custom_Text_Type_14sp">
+        <item name="android:textColor">@color/app_main_color</item>
+        <item name="android:textSize">@dimen/text_size_14sp</item>
         <item name="android:textStyle">bold</item>
     </style>
     

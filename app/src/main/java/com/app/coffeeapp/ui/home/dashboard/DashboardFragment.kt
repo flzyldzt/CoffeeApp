@@ -8,10 +8,12 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.app.coffeeapp.R
 import com.app.coffeeapp.databinding.FragmentDashboardBinding
 import com.app.coffeeapp.ui.home.dashboard.adapter.CampaignAdapter
 import com.app.coffeeapp.ui.home.dashboard.adapter.FeaturedProductsAdapter
 import com.app.coffeeapp.ui.home.dashboard.model.Campaign
+import com.app.coffeeapp.util.HorizontalItemSpacingDecoration
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -62,7 +64,15 @@ class DashboardFragment : Fragment() {
         layoutManager =
             LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         adapter = campaignAdapter
+
+        if (itemDecorationCount == 0) {
+            addItemDecoration(
+                HorizontalItemSpacingDecoration(
+                    resources.getDimensionPixelSize(R.dimen.margin_12dp)
+                )
+            )
         }
+    }
 
     private fun observeViewModel() = with(viewModel) {
         featuredProducts.observe(viewLifecycleOwner) {

@@ -114,35 +114,89 @@
 
             </LinearLayout>
 
-            <!-- KAMPANYALAR -->
-            <TextView
-                android:id="@+id/tvCampaigns"
-                style="@style/Custom_Text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_20dp"
-                android:text="@string/tv_campaigns" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvCampaigns"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_8dp" />
+                android:layout_marginTop="@dimen/margin_16dp">
 
-            <!-- DUYURULAR -->
-            <TextView
-                android:id="@+id/tvAnnouncements"
-                style="@style/Custom_Text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_20dp"
-                android:text="@string/tv_announcements" />
+                <TextView
+                    android:id="@+id/tvCampaigns"
+                    style="@style/Custom_Text_Type_16sp"
+                    android:layout_width="@dimen/spacing_0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center|start"
+                    android:text="@string/tv_campaigns"
+                    app:layout_constraintEnd_toStartOf="@+id/tvSeeAllCampaigns"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvAnnouncements"
+                <TextView
+                    android:id="@+id/tvSeeAllCampaigns"
+                    style="@style/Custom_Text_Type_14sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/spacing_0dp"
+                    android:gravity="center"
+                    android:text="@string/tv_see_all"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvCampaigns"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tvCampaigns" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvCampaigns"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_16dp"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvCampaigns"
+                    tools:itemCount="3"
+                    tools:listitem="@layout/item_campaign" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_8dp" />
+                android:layout_marginTop="@dimen/margin_16dp">
+
+                <TextView
+                    android:id="@+id/tvAnnouncements"
+                    style="@style/Custom_Text_Type_16sp"
+                    android:layout_width="@dimen/spacing_0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center|start"
+                    android:text="@string/tv_announcements"
+                    app:layout_constraintEnd_toStartOf="@+id/tvSeeAllAnnouncement"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvSeeAllAnnouncement"
+                    style="@style/Custom_Text_Type_14sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/spacing_0dp"
+                    android:gravity="center"
+                    android:text="@string/tv_see_all"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvAnnouncements"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tvAnnouncements" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvAnnouncements"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_16dp"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvAnnouncements"
+                    tools:itemCount="3"
+                    tools:listitem="@layout/item_announcement" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>
 
