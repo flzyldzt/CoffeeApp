@@ -2,6 +2,8 @@ package com.app.coffeeapp.ui.home.dashboard.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.app.coffeeapp.R
 import com.app.coffeeapp.databinding.ItemCampaignBinding
@@ -11,15 +13,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 
 class CampaignAdapter(
     private val onItemClick: (Campaign) -> Unit
-) : RecyclerView.Adapter<CampaignAdapter.CampaignViewHolder>() {
-
-    private val list = mutableListOf<Campaign>()
-
-    fun submitList(data: List<Campaign>) {
-        list.clear()
-        list.addAll(data)
-        notifyDataSetChanged()
-    }
+) : ListAdapter<Campaign, CampaignAdapter.CampaignViewHolder>(DiffCallback) {
 
     inner class CampaignViewHolder(
         val binding: ItemCampaignBinding
@@ -35,7 +29,7 @@ class CampaignAdapter(
     }
 
     override fun onBindViewHolder(holder: CampaignViewHolder, position: Int) {
-        val item = list[position]
+        val item = getItem(position)
 
         Glide.with(holder.itemView)
             .load(item.imageUrl)
@@ -49,5 +43,22 @@ class CampaignAdapter(
         }
     }
 
-    override fun getItemCount() = list.size
+    companion object {
+        private val DiffCallback = object : DiffUtil.ItemCallback<Campaign>() {
+
+            override fun areItemsTheSame(
+                oldItem: Campaign,
+                newItem: Campaign
+            ): Boolean {
+                return oldItem.id == newItem.id
+            }
+
+            override fun areContentsTheSame(
+                oldItem: Campaign,
+                newItem: Campaign
+            ): Boolean {
+                return oldItem == newItem
+            }
+        }
+    }
 }

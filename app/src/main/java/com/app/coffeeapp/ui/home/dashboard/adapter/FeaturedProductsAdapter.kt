@@ -58,7 +58,7 @@ class FeaturedProductsAdapter :
 
         Glide.with(holder.itemView)
             .load(item.imageUrl)
-            .override(128, 128)
+            .circleCrop()
             .placeholder(R.drawable.ic_placeholder)
             .error(R.drawable.ic_error)
             .diskCacheStrategy(DiskCacheStrategy.ALL)

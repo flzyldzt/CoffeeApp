@@ -9,7 +9,7 @@ object DummyFeaturedProductsDataSource {
             FeaturedProducts(
                 id = 1,
                 title = "Türk Kahvesi",
-                imageUrl = "https://png.pngtree.com/png-vector/20250513/ourlarge/pngtree-turkish-coffee-in-white-porcelain-cup-png-image_16258881.png"
+                imageUrl = "https://i.pinimg.com/736x/11/5e/db/115edb270fc257e9735cce7dbd67c561.jpg"
             ),
             FeaturedProducts(
                 id = 2,
@@ -24,12 +24,12 @@ object DummyFeaturedProductsDataSource {
             FeaturedProducts(
                 id = 4,
                 title = "Hojicha Tea",
-                imageUrl = "https://e7.pngegg.com/pngimages/120/436/png-clipart-hot-drink-in-cup-dish-tea-tableware-hojicha-cup-cup-2-tea-hot-food-tea-thumbnail.png"
+                imageUrl = "https://png.pngtree.com/png-vector/20210531/ourmid/pngtree-red-tea-red-health-png-image_3392972.jpg"
             ),
             FeaturedProducts(
                 id = 5,
                 title = "Espresso",
-                imageUrl = "https://w7.pngwing.com/pngs/698/334/png-transparent-glass-of-espresso-coffee-espresso-latte-macchiato-cafe-latte-glass-cafe-ristretto-thumbnail.png"
+                imageUrl = "https://png.pngtree.com/png-vector/20241122/ourlarge/pngtree-a-shot-of-espresso-coffee-in-small-glass-png-image_14533477.png"
             ),
             FeaturedProducts(
                 id = 6,
@@ -49,12 +49,12 @@ object DummyFeaturedProductsDataSource {
             FeaturedProducts(
                 id = 9,
                 title = "Americano",
-                imageUrl = "https://png.pngtree.com/png-vector/20240808/ourlarge/pngtree-americano-coffee-png-image_13404145.png"
+                imageUrl = "https://p7.hiclipart.com/preview/890/365/274/coffee-cafe-au-lait-caffe-americano-choice-wat-santikham-coffee-thumbnail.jpg"
             ),
             FeaturedProducts(
                 id = 10,
                 title = "Çikolatalı Kek",
-                imageUrl = "https://w7.pngwing.com/pngs/352/591/png-transparent-slice-of-chocolate-cake-chocolate-cake-sachertorte-birthday-cake-fudge-cake-chocolate-cake-baked-goods-food-recipe-thumbnail.png"
+                imageUrl = "https://w7.pngwing.com/pngs/581/296/png-transparent-sachertorte-chocolate-cake-chocolate-brownie-cake-slice-cake-slice-chocolate-chocolate-brownie.png"
             )
         )
     }

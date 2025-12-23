@@ -9,7 +9,7 @@ class FeaturedProductsRepository {
         // Şu an dummy
         return DummyFeaturedProductsDataSource.getFeaturedProducts()
 
-        // Yarın:
-        // return api.getCategories()
+        // Sonra
+        // return api.featuredProductsList()
     }
 }
