@@ -1,4 +1,4 @@
-package com.app.coffeeapp
+package com.app.coffeeapp.ui
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp

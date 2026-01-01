@@ -21,7 +21,8 @@
     <string name="tv_campaigns">Kampanyalar</string>
     <string name="tv_announcements">Duyurular</string>
     <string name="tv_featured_product_name">Product Name</string>
-    <string name="tv_see_all">Tümünü Gör(%s)</string>
+    <string name="tv_see_all">Tümünü Gör(%d)</string>
+    <string name="tv_back">Geri</string>
 
     <!-- Edittext -->
     <string name="et_name">Ad</string>
@@ -43,6 +44,7 @@
 
     <!-- Bottom View Name-->
     <string name="tab_dashboard">Anasayfa</string>
+    <string name="tab_products">Ürünler</string>
     <string name="tab_stores">Mağazalar</string>
     <string name="tab_selling">Sipariş Ver</string>
     <string name="tab_more">Diğer</string>

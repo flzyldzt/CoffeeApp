@@ -7,14 +7,19 @@
         android:title="@string/tab_dashboard" />
 
     <item
-        android:id="@+id/menuStore"
-        android:icon="@drawable/ic_stores_location"
-        android:title="@string/tab_stores" />
+        android:id="@+id/menuProduct"
+        android:icon="@drawable/ic_coffee"
+        android:title="@string/tab_products" />
 
     <item
         android:id="@+id/menuSelling"
-        android:icon="@drawable/ic_coffee"
+        android:icon="@drawable/ic_shopping"
         android:title="@string/tab_selling" />
+
+    <item
+        android:id="@+id/menuStore"
+        android:icon="@drawable/ic_stores_location"
+        android:title="@string/tab_stores" />
 
     <item
         android:id="@+id/menuMore"

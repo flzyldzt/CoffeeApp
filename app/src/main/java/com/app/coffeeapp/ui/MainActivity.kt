@@ -1,9 +1,10 @@
-package com.app.coffeeapp
+package com.app.coffeeapp.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
+import com.app.coffeeapp.R
 import com.app.coffeeapp.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 

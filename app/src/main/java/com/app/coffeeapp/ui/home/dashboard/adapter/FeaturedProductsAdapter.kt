@@ -7,28 +7,28 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.app.coffeeapp.R
 import com.app.coffeeapp.databinding.ItemFeaturedProductsBinding
-import com.app.coffeeapp.ui.home.dashboard.model.FeaturedProducts
+import com.app.coffeeapp.domain.storlyproducts.StorlyProductsUiModel
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 
 class FeaturedProductsAdapter :
-    ListAdapter<FeaturedProducts, FeaturedProductsAdapter.FeaturedViewHolder>(
+    ListAdapter<StorlyProductsUiModel, FeaturedProductsAdapter.FeaturedViewHolder>(
         DIFF_CALLBACK
     ) {
 
     companion object {
-        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<FeaturedProducts>() {
+        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<StorlyProductsUiModel>() {
 
             override fun areItemsTheSame(
-                oldItem: FeaturedProducts,
-                newItem: FeaturedProducts
+                oldItem: StorlyProductsUiModel,
+                newItem: StorlyProductsUiModel
             ): Boolean {
                 return oldItem.id == newItem.id
             }
 
             override fun areContentsTheSame(
-                oldItem: FeaturedProducts,
-                newItem: FeaturedProducts
+                oldItem: StorlyProductsUiModel,
+                newItem: StorlyProductsUiModel
             ): Boolean {
                 return oldItem == newItem
             }

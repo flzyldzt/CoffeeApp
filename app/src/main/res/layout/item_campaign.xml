@@ -1,17 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="300dp"
-    android:layout_height="@dimen/elevation_200dp"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:elevation="@dimen/elevation_4dp"
     app:cardCornerRadius="@dimen/radius_12dp">
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/imgCampaign"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        tools:src="@drawable/img_bg_splash"/>
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/elevation_200dp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgCampaign"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                tools:src="@drawable/img_bg_splash" />
+
+            <ProgressBar
+                android:id="@+id/pbCampaign"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:indeterminateTint="@color/app_main_color" />
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutBottomInfo"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/common_view_height"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="@dimen/padding_12dp"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <TextView
+                android:id="@+id/tvCampaignTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="@color/dark_gray"
+                android:textSize="@dimen/text_size_16sp"
+                android:textStyle="bold"
+                tools:text="Krem Peynirli Havuçlu Kek" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_arrow_right" />
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </androidx.cardview.widget.CardView>

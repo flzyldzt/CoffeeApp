@@ -6,13 +6,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.PagerSnapHelper
 import com.app.coffeeapp.R
 import com.app.coffeeapp.databinding.FragmentDashboardBinding
+import com.app.coffeeapp.ui.common.UiDisplayMode
+import com.app.coffeeapp.ui.home.dashboard.adapter.AnnouncementAdapter
 import com.app.coffeeapp.ui.home.dashboard.adapter.CampaignAdapter
 import com.app.coffeeapp.ui.home.dashboard.adapter.FeaturedProductsAdapter
-import com.app.coffeeapp.ui.home.dashboard.model.Campaign
 import com.app.coffeeapp.util.HorizontalItemSpacingDecoration
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -22,14 +25,26 @@ class DashboardFragment : Fragment() {
     private var _binding: FragmentDashboardBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel: DashboardViewModel by viewModels()
+    //private val viewModel: DashboardViewModel by viewModels() -> Bu DashboardFragment'e özel bir viewmodel üretir.
+    private val viewModel: DashboardViewModel by activityViewModels() //aynı Activity içindeki tüm fragmentler aynı ViewModel'i paylaşır.
+
 
     private val featuredProductsAdapter by lazy {
         FeaturedProductsAdapter()
     }
 
     private val campaignAdapter by lazy {
-        CampaignAdapter(::onCampaignClicked)
+        CampaignAdapter(
+            uiMode = UiDisplayMode.DASHBOARD,
+            onItemClick = ::onCampaignClicked
+        )
+    }
+
+    private val announcementAdapter by lazy {
+        AnnouncementAdapter(
+            uiDisplayMode = UiDisplayMode.DASHBOARD,
+            onItemClick = ::onAnnouncementClick
+        )
     }
 
     override fun onCreateView(
@@ -42,7 +57,6 @@ class DashboardFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         setupUi()
         observeViewModel()
 
@@ -52,6 +66,18 @@ class DashboardFragment : Fragment() {
     private fun setupUi() {
         setupFeaturedProductsRecyclerView()
         setupCampaignsRecyclerView()
+        setupAnnouncementsRecyclerView()
+        setupSeeAllClicks()
+    }
+
+    private fun setupSeeAllClicks() = with(binding) {
+        tvSeeAllCampaigns.setOnClickListener {
+            navigateToCampaignList()
+        }
+
+        tvSeeAllAnnouncement.setOnClickListener {
+            navigateToAnnouncementList()
+        }
     }
 
     private fun setupFeaturedProductsRecyclerView() = binding.rvFeaturedProducts.apply {
@@ -74,22 +100,78 @@ class DashboardFragment : Fragment() {
         }
     }
 
+    private fun setupAnnouncementsRecyclerView() = binding.rvAnnouncements.apply {
+        layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        adapter = announcementAdapter
+
+        PagerSnapHelper().attachToRecyclerView(this)
+
+        if (itemDecorationCount == 0) {
+            addItemDecoration(
+                HorizontalItemSpacingDecoration(
+                    resources.getDimensionPixelSize(R.dimen.margin_12dp)
+                )
+            )
+        }
+    }
+
     private fun observeViewModel() = with(viewModel) {
-        featuredProducts.observe(viewLifecycleOwner) {
+        storlyProducts.observe(viewLifecycleOwner) {
             featuredProductsAdapter.submitList(it)
         }
 
         campaigns.observe(viewLifecycleOwner) {
-            campaignAdapter.submitList(it)
+            //binding.pbCampaigns.visibility = View.GONE
+            //binding.rvCampaigns.visibility = View.VISIBLE
+            campaignAdapter.submitList(it.take(3))
+            viewModel.updateCampaignCount(it.size)
+        }
+
+        announcements.observe(viewLifecycleOwner) {
+//            binding.pbAnnouncements.visibility = View.GONE
+//            binding.rvAnnouncements.visibility = View.VISIBLE
+            announcementAdapter.submitList(it.take(3))
+            viewModel.updateAnnouncementCount(it.size)
+        }
+
+        campaignCount.observe(viewLifecycleOwner) { count ->
+            binding.tvSeeAllCampaigns.text =
+                getString(R.string.tv_see_all, count)
+        }
+
+        announcementCount.observe(viewLifecycleOwner) { count ->
+            binding.tvSeeAllAnnouncement.text =
+                getString(R.string.tv_see_all, count)
         }
     }
 
-    private fun onCampaignClicked(campaign: Campaign) {
+    private fun onCampaignClicked(id: Int) {
         Toast.makeText(
             requireContext(),
-            "Campaign id: ${campaign.id}",
+            "Campaign id: $id",
             Toast.LENGTH_SHORT
         ).show()
+    }
+
+    private fun onAnnouncementClick(id: Int) {
+        Toast.makeText(
+            requireContext(),
+            "Announcement id: $id",
+            Toast.LENGTH_SHORT
+        ).show()
+    }
+
+    private fun navigateToCampaignList() {
+        findNavController().navigate(
+            R.id.action_dashboardFragment_to_campaignsListFragment
+        )
+    }
+
+    private fun navigateToAnnouncementList() {
+        findNavController().navigate(
+            R.id.action_dashboardFragment_to_announcementsListFragment
+        )
     }
 
     override fun onDestroyView() {
