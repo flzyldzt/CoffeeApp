@@ -32,4 +32,10 @@
         android:label="AnnouncementsListFragment"
         tools:layout="@layout/fragment_announcements_list" />
 
+    <fragment
+        android:id="@+id/productsFragment"
+        android:name="com.app.coffeeapp.ui.home.products.ProductsFragment"
+        android:label="ProductsFragment"
+        tools:layout="@layout/fragment_products" />
+
 </navigation>

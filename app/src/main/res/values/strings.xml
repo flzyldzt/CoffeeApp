@@ -23,6 +23,13 @@
     <string name="tv_featured_product_name">Product Name</string>
     <string name="tv_see_all">Tümünü Gör(%d)</string>
     <string name="tv_back">Geri</string>
+    <string name="tv_products">Ürünler</string>
+    <string name="tv_search_hint">Arama</string>
+    <string name="tv_category_hot_drinks">Sıcak İçecekler</string>
+    <string name="tv_category_cold_drinks">Soğuk İçecekler</string>
+    <string name="tv_category_coffee_varieties">Kahve Çeşitleri</string>
+    <string name="tv_category_desserts">Tatlılar</string>
+    <string name="tv_category_diet_foods">Diyetlik Yemekler</string>
 
     <!-- Edittext -->
     <string name="et_name">Ad</string>
@@ -36,6 +43,8 @@
     <string name="btn_log_in">Giriş</string>
     <string name="btn_update">Güncelle</string>
     <string name="btn_signup">Üye ol</string>
+    <string name="btn_add_to_cart">Sepete ekle</string>
+    <string name="btn_search">Ara</string>
 
     <!-- Toast Message -->
     <string name="toast_message_verification">Email doğrulaması gerekli.</string>

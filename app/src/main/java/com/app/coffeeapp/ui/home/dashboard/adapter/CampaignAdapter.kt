@@ -51,7 +51,6 @@ class CampaignAdapter(
     override fun onBindViewHolder(holder: CampaignViewHolder, position: Int) {
         val item = getItem(position)
 
-        // recycle bug fix
         holder.binding.pbCampaign.visibility = View.VISIBLE
         holder.binding.imgCampaign.setImageDrawable(null)
 
@@ -64,7 +63,6 @@ class CampaignAdapter(
             onItemClick(item.id)
         }
 
-        // Ui Mode Kontrolü
         if (uiMode == UiDisplayMode.LIST) {
             holder.binding.layoutBottomInfo.visibility = View.VISIBLE
             holder.binding.tvCampaignTitle.text = item.title

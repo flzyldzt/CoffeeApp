@@ -9,4 +9,6 @@ interface FirebaseRepository {
     suspend fun login(email: String, password: String): Result<FirebaseUser>
     suspend fun getUserProfile(uid: String): Result<UserResponse>
     suspend fun updateUserProfile(uid: String, data: Map<String, Any>): Result<Boolean>
+    suspend fun sendPasswordResetEmail(email: String): Result<Unit>
+    suspend fun logout(): Result<Unit>
 }

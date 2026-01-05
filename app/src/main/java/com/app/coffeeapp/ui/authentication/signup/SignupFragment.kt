@@ -86,6 +86,13 @@ class SignupFragment : Fragment() {
                 is Resource.Error -> {
                     binding.progressBar.visibility = View.GONE
                     Log.e("REGISTER_ERROR", res.message.toString())
+                    
+                    android.widget.Toast.makeText(
+                        requireContext(),
+                        res.message ?: "Kayıt işlemi sırasında bir hata oluştu",
+                        android.widget.Toast.LENGTH_LONG
+                    ).show()
+                    
                     setRegisterState(Resource.Idle())
                 }
 
