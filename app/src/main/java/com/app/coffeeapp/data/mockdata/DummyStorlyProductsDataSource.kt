@@ -9,7 +9,7 @@ object DummyStorlyProductsDataSource {
             StorlyProductsResponse(
                 id = 1,
                 title = "Türk Kahvesi",
-                imageUrl = "https://i.pinimg.com/736x/11/5e/db/115edb270fc257e9735cce7dbd67c561.jpg"
+                imageUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQH3JfR36BkFG5L0Wq67-zkahVvqIxLGPrGrA&s"
             ),
             StorlyProductsResponse(
                 id = 2,
@@ -29,7 +29,7 @@ object DummyStorlyProductsDataSource {
             StorlyProductsResponse(
                 id = 5,
                 title = "Espresso",
-                imageUrl = "https://png.pngtree.com/png-vector/20241122/ourlarge/pngtree-a-shot-of-espresso-coffee-in-small-glass-png-image_14533477.png"
+                imageUrl = "https://png.pngtree.com/png-clipart/20250207/original/pngtree-glass-cup-of-espresso-coffee-isolated-on-transparent-background-png-image_20376027.png"
             ),
             StorlyProductsResponse(
                 id = 6,
