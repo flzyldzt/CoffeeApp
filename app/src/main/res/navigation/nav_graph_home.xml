@@ -38,4 +38,10 @@
         android:label="ProductsFragment"
         tools:layout="@layout/fragment_products" />
 
+    <fragment
+        android:id="@+id/storesFragment"
+        android:name="com.app.coffeeapp.ui.home.stores.StoresFragment"
+        android:label="StoresFragment"
+        tools:layout="@layout/fragment_stores" />
+
 </navigation>

@@ -11,14 +11,12 @@ class ProductUiMapper @Inject constructor() {
             name = response.name,
             price = response.price,
             imageUrl = response.imageUrl,
-            category = response.category
+            category = ProductsCategory.fromDisplayName(response.category)
         )
     }
 
     fun toUiModelList(
         responseList: List<ProductResponse>
-    ): List<ProductUiModel> {
-        return responseList.map { toUiModel(it) }
-    }
+    ): List<ProductUiModel> =
+        responseList.map(::toUiModel)
 }
-

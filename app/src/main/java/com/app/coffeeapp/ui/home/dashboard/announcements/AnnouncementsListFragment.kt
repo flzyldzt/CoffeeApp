@@ -66,8 +66,8 @@ class AnnouncementsListFragment : Fragment() {
         }
     }
 
-    private fun observeViewModel() {
-        viewModel.announcements.observe(viewLifecycleOwner) {
+    private fun observeViewModel() = with(viewModel) {
+        announcements.observe(viewLifecycleOwner) {
             announcementAdapter.submitList(it)
         }
     }

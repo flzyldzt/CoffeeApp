@@ -65,8 +65,8 @@ class CampaignsListFragment : Fragment() {
         }
     }
 
-    private fun observeData() {
-        viewModel.campaigns.observe(viewLifecycleOwner) {
+    private fun observeData() = with(viewModel) {
+        campaigns.observe(viewLifecycleOwner) {
             campaignAdapter.submitList(it)
         }
     }

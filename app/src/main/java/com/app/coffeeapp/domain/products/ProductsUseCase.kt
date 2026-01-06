@@ -12,4 +12,3 @@ class ProductsUseCase @Inject constructor(
         return productUiMapper.toUiModelList(response)
     }
 }
-

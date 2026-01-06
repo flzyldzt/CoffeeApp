@@ -50,7 +50,9 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.menuStore -> {
-                    // TODO: Mağazalar sayfası eklenecek
+                    if (currentDestination != R.id.storesFragment) {
+                        navController?.navigate(R.id.storesFragment)
+                    }
                     true
                 }
                 R.id.menuMore -> {
@@ -85,8 +87,8 @@ class MainActivity : AppCompatActivity() {
         val menuItemId = when (destinationId) {
             R.id.dashboardFragment -> R.id.menuDashboard
             R.id.productsFragment -> R.id.menuProduct
+            R.id.storesFragment -> R.id.menuStore
             R.id.menuSelling -> R.id.menuSelling
-            R.id.menuStore -> R.id.menuStore
             R.id.menuMore -> R.id.menuMore
             else -> null
         }

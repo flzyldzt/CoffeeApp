@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/margin_16dp"
+    android:layout_marginTop="@dimen/margin_12dp"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="@dimen/radius_12dp"
+    app:cardElevation="@dimen/elevation_2dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_16dp">
+
+        <!-- Location Icon -->
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgLocation"
+            android:layout_width="@dimen/icon_size_small_24dp"
+            android:layout_height="@dimen/icon_size_small_24dp"
+            android:src="@drawable/ic_stores_location"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/app_main_color" />
+
+        <!-- Store Name -->
+        <TextView
+            android:id="@+id/tvStoreName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_12dp"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/tvDetail"
+            app:layout_constraintStart_toEndOf="@id/imgLocation"
+            app:layout_constraintTop_toTopOf="@id/imgLocation"
+            tools:text="Ankara Kızılay" />
+
+        <!-- Address -->
+        <TextView
+            android:id="@+id/tvAddress"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_12dp"
+            android:layout_marginTop="@dimen/margin_8dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="@color/dark_gray"
+            android:textSize="@dimen/text_size_14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/imgLocation"
+            app:layout_constraintTop_toBottomOf="@id/tvStoreName"
+            tools:text="Mesrutiyet Mah. Kizilay Karanfil Sokak No:42A Çankaya/Ankara" />
+
+        <!-- Distance -->
+        <TextView
+            android:id="@+id/tvDistance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_12dp"
+            android:layout_marginTop="@dimen/margin_8dp"
+            android:textColor="@color/dark_gray"
+            android:textSize="@dimen/text_size_14sp"
+            app:layout_constraintStart_toEndOf="@id/imgLocation"
+            app:layout_constraintTop_toBottomOf="@id/tvAddress"
+            tools:text="7,39 km" />
+
+        <TextView
+            android:id="@+id/tvOpeningHours"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/dark_gray"
+            android:textSize="@dimen/text_size_14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.051"
+            app:layout_constraintStart_toEndOf="@+id/imgLocation"
+            app:layout_constraintTop_toBottomOf="@+id/tvDistance"
+            app:layout_goneMarginTop="@dimen/margin_8dp"
+            tools:text="10:00 - 22:00" />
+
+        <TextView
+            android:id="@+id/tvDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:text="@string/tv_detail"
+            android:textColor="@color/app_main_color"
+            android:textSize="@dimen/text_size_14sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/tvStoreName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvStoreName" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

@@ -18,4 +18,3 @@ data class ProductResponse(
     @SerializedName("category")
     val category: String
 )
-

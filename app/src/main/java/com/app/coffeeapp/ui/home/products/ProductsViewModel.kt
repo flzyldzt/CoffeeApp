@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.app.coffeeapp.domain.products.ProductUiModel
+import com.app.coffeeapp.domain.products.ProductsCategory
 import com.app.coffeeapp.domain.products.ProductsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -15,31 +16,28 @@ class ProductsViewModel @Inject constructor(
     private val productsUseCase: ProductsUseCase
 ) : ViewModel() {
 
-    private val _products = MutableLiveData<List<ProductUiModel>>()
+    private val _products = MutableLiveData<List<ProductUiModel>>(emptyList())
     val products: LiveData<List<ProductUiModel>> = _products
 
-    private val _filteredProducts = MutableLiveData<List<ProductUiModel>>()
+    private val _filteredProducts = MutableLiveData<List<ProductUiModel>>(emptyList())
     val filteredProducts: LiveData<List<ProductUiModel>> = _filteredProducts
 
-    private val _selectedCategory = MutableLiveData<String>("Sıcak İçecekler")
-    val selectedCategory: LiveData<String> = _selectedCategory
+    private val _selectedCategory =
+        MutableLiveData(ProductsCategory.HOT_DRINKS)
 
-    private val _searchQuery = MutableLiveData<String>("")
-    val searchQuery: LiveData<String> = _searchQuery
+    private val _searchQuery = MutableLiveData("")
 
     init {
         loadProducts()
     }
 
-    private fun loadProducts() {
-        viewModelScope.launch {
-            val allProducts = productsUseCase()
-            _products.value = allProducts
-            filterProducts()
-        }
+    private fun loadProducts() = viewModelScope.launch {
+        _products.value = productsUseCase()
+        filterProducts()
     }
 
-    fun setSelectedCategory(category: String) {
+    fun setSelectedCategory(category: ProductsCategory) {
+        if (_selectedCategory.value == category) return
         _selectedCategory.value = category
         filterProducts()
     }
@@ -50,18 +48,14 @@ class ProductsViewModel @Inject constructor(
     }
 
     private fun filterProducts() {
-        val allProducts = _products.value ?: return
-        val category = _selectedCategory.value ?: ""
-        val query = _searchQuery.value ?: ""
+        val products = _products.value.orEmpty()
+        val category = _selectedCategory.value
+        val query = _searchQuery.value.orEmpty()
 
-        val filtered = allProducts.filter { product ->
-            val matchesCategory = product.category == category
-            val matchesSearch = query.isEmpty() || 
-                product.name.contains(query, ignoreCase = true)
-            
-            matchesCategory && matchesSearch
-        }
-
-        _filteredProducts.value = filtered
+        (filteredProducts as MutableLiveData).value =
+            products.filter {
+                it.category == category &&
+                        (query.isBlank() || it.name.contains(query, true))
+            }
     }
 }

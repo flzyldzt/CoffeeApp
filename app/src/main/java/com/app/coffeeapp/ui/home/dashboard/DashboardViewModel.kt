@@ -42,22 +42,16 @@ class DashboardViewModel @Inject constructor(
         loadAnnouncements()
     }
 
-    fun loadStorlyProducts() {
-        viewModelScope.launch {
+    fun loadStorlyProducts() = viewModelScope.launch {
             _storlyProducts.value = storlyProductsUseCase()
-        }
     }
 
-    fun loadCampaigns() {
-        viewModelScope.launch {
+    fun loadCampaigns() = viewModelScope.launch {
             _campaigns.value = campaignsUseCase()
-        }
     }
 
-    fun loadAnnouncements() {
-        viewModelScope.launch {
+    fun loadAnnouncements() = viewModelScope.launch {
             _announcements.value = announcementsUseCase()
-        }
     }
 
     fun updateCampaignCount(count: Int) {

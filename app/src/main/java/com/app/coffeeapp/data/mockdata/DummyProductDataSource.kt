@@ -1,122 +1,70 @@
 package com.app.coffeeapp.data.mockdata
 
 import com.app.coffeeapp.data.api.model.products.ProductResponse
+import com.app.coffeeapp.domain.products.ProductsCategory
 
 object DummyProductDataSource {
 
     fun getProducts(): List<ProductResponse> = buildList {
         var id = 1
 
-        addAll(createHotDrinks(id).also { id += it.size })
-        addAll(createColdDrinks(id).also { id += it.size })
-        addAll(createCoffeeVarieties(id).also { id += it.size })
-        addAll(createDesserts(id).also { id += it.size })
-        addAll(createDietFoods(id))
+        addAll(createProducts(id, hotDrinks(), ProductsCategory.HOT_DRINKS).also { id += it.size })
+        addAll(
+            createProducts(
+                id,
+                coldDrinks(),
+                ProductsCategory.COLD_DRINKS
+            ).also { id += it.size })
+        addAll(
+            createProducts(
+                id,
+                coffeeVarieties(),
+                ProductsCategory.COFFEE_VARIETIES
+            ).also { id += it.size })
+        addAll(createProducts(id, desserts(), ProductsCategory.DESSERTS).also { id += it.size })
+        addAll(createProducts(id, dietFoods(), ProductsCategory.DIET_FOODS))
     }
 
-    private fun createHotDrinks(startId: Int): List<ProductResponse> {
-        val products = listOf(
-            "Türk Kahvesi", "Espresso", "Americano", "Cappuccino", "Latte",
-            "Mocha", "Sıcak Çikolata", "Siyah Çay", "Matcha Latte", "Nescafe"
-        )
-
-        return products.mapIndexed { index, name ->
+    private fun createProducts(
+        startId: Int,
+        names: List<String>,
+        category: ProductsCategory
+    ): List<ProductResponse> =
+        names.mapIndexed { index, name ->
             ProductResponse(
                 id = startId + index,
                 name = name,
-                price = calculateHotDrinkPrice(index),
-                imageUrl = getImageUrlForProduct(name),
-                category = Category.HOT_DRINKS.displayName
+                price = category.basePrice + index * 1.5,
+                imageUrl = ProductImageMapper.getImageUrl(name),
+                category = category.displayName
             )
         }
-    }
 
-    private fun createColdDrinks(startId: Int): List<ProductResponse> {
-        val products = listOf(
-            "Iced Latte", "Iced Americano", "Cold Brew",
-            "Iced Cappuccino", "Limonata", "Portakal Suyu",
-            "Smoothie", "Milkshake", "Frappe", "Bubble Tea"
-        )
+    private fun hotDrinks() = listOf(
+        "Türk Kahvesi", "Espresso", "Americano", "Cappuccino", "Latte",
+        "Mocha", "Sıcak Çikolata", "Siyah Çay", "Matcha Latte", "Nescafe"
+    )
 
-        return products.mapIndexed { index, name ->
-            ProductResponse(
-                id = startId + index,
-                name = name,
-                price = calculateColdDrinkPrice(index),
-                imageUrl = getImageUrlForProduct(name),
-                category = Category.COLD_DRINKS.displayName
-            )
-        }
-    }
+    private fun coldDrinks() = listOf(
+        "Iced Latte", "Iced Americano", "Cold Brew",
+        "Iced Cappuccino", "Limonata", "Portakal Suyu",
+        "Smoothie", "Milkshake", "Frappe", "Bubble Tea"
+    )
 
-    private fun createCoffeeVarieties(startId: Int): List<ProductResponse> {
-        val products = listOf(
-            "Filtre Kahve", "Espresso Single", "Cortado",
-            "Cappuccino", "Latte", "Flat White", "Macchiato"
-        )
+    private fun coffeeVarieties() = listOf(
+        "Filtre Kahve", "Espresso Single", "Cortado",
+        "Cappuccino", "Latte", "Flat White", "Macchiato"
+    )
 
-        return products.mapIndexed { index, name ->
-            ProductResponse(
-                id = startId + index,
-                name = name,
-                price = calculateCoffeeVarietyPrice(index),
-                imageUrl = getImageUrlForProduct(name),
-                category = Category.COFFEE_VARIETIES.displayName
-            )
-        }
-    }
+    private fun desserts() = listOf(
+        "Tiramisu", "Cheesecake", "Brownie", "Kruvasan",
+        "Muffin", "Donut", "Cookies", "Macaron"
+    )
 
-    private fun createDesserts(startId: Int): List<ProductResponse> {
-        val products = listOf(
-            "Tiramisu", "Cheesecake", "Brownie", "Kruvasan",
-            "Muffin", "Donut", "Cookies", "Macaron"
-        )
-
-        return products.mapIndexed { index, name ->
-            ProductResponse(
-                id = startId + index,
-                name = name,
-                price = calculateDessertPrice(index),
-                imageUrl = getImageUrlForProduct(name),
-                category = Category.DESSERTS.displayName
-            )
-        }
-    }
-
-    private fun createDietFoods(startId: Int): List<ProductResponse> {
-        val products = listOf(
-            "Avokado Salatası", "Yulaf Ezmesi",
-            "Acai Bowl", "Smoothie Bowl", "Brown Rice Bowl"
-        )
-
-        return products.mapIndexed { index, name ->
-            ProductResponse(
-                id = startId + index,
-                name = name,
-                price = calculateDietFoodPrice(index),
-                imageUrl = getImageUrlForProduct(name),
-                category = Category.DIET_FOODS.displayName
-            )
-        }
-    }
-
-    private fun getImageUrlForProduct(productName: String): String {
-        return ProductImageMapper.getImageUrl(productName)
-    }
-
-    private fun calculateHotDrinkPrice(index: Int): Double = 30.0 + (index * 1.5)
-    private fun calculateColdDrinkPrice(index: Int): Double = 35.0 + (index * 1.5)
-    private fun calculateCoffeeVarietyPrice(index: Int): Double = 40.0 + (index * 1.5)
-    private fun calculateDessertPrice(index: Int): Double = 50.0 + (index * 3.0)
-    private fun calculateDietFoodPrice(index: Int): Double = 60.0 + (index * 3.5)
-
-    private enum class Category(val displayName: String) {
-        HOT_DRINKS("Sıcak İçecekler"),
-        COLD_DRINKS("Soğuk İçecekler"),
-        COFFEE_VARIETIES("Kahve Çeşitleri"),
-        DESSERTS("Tatlılar"),
-        DIET_FOODS("Diyetlik Yemekler")
-    }
+    private fun dietFoods() = listOf(
+        "Avokado Salatası", "Yulaf Ezmesi",
+        "Acai Bowl", "Smoothie Bowl", "Brown Rice Bowl"
+    )
 }
 
 private object ProductImageMapper {

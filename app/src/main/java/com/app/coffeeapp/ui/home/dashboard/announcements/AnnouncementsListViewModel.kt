@@ -22,9 +22,7 @@ class AnnouncementsListViewModel @Inject constructor(
         loadCampaigns()
     }
 
-    private fun loadCampaigns() {
-        viewModelScope.launch {
+    private fun loadCampaigns() = viewModelScope.launch {
             _announcements.value = announcementsUseCase()
-        }
     }
 }

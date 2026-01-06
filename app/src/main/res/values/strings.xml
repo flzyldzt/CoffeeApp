@@ -30,6 +30,9 @@
     <string name="tv_category_coffee_varieties">Kahve Çeşitleri</string>
     <string name="tv_category_desserts">Tatlılar</string>
     <string name="tv_category_diet_foods">Diyetlik Yemekler</string>
+    <string name="tv_detail">Detay &gt;</string>
+    <string name="tv_closed">Kapalı</string>
+    <string name="tv_open">Açık</string>
 
     <!-- Edittext -->
     <string name="et_name">Ad</string>

@@ -5,6 +5,5 @@ data class ProductUiModel(
     val name: String,
     val price: Double,
     val imageUrl: String,
-    val category: String
+    val category: ProductsCategory
 )
-
