@@ -122,15 +122,11 @@ class DashboardFragment : Fragment() {
         }
 
         campaigns.observe(viewLifecycleOwner) {
-            //binding.pbCampaigns.visibility = View.GONE
-            //binding.rvCampaigns.visibility = View.VISIBLE
             campaignAdapter.submitList(it.take(3))
             viewModel.updateCampaignCount(it.size)
         }
 
         announcements.observe(viewLifecycleOwner) {
-//            binding.pbAnnouncements.visibility = View.GONE
-//            binding.rvAnnouncements.visibility = View.VISIBLE
             announcementAdapter.submitList(it.take(3))
             viewModel.updateAnnouncementCount(it.size)
         }

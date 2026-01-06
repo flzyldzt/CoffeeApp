@@ -22,12 +22,6 @@ class StoresFragment : Fragment() {
     private val binding get() = _binding!!
     private val viewModel: StoresViewModel by viewModels()
 
-//    private val storeAdapter by lazy {
-//        StoreAdapter { store ->
-//            onDetailClick(store)
-//        }
-//    }
-
     private val storeAdapter by lazy {
         StoreAdapter(::onDetailClick)
     }
@@ -53,12 +47,6 @@ class StoresFragment : Fragment() {
         adapter = storeAdapter
     }
 
-//    private fun setupSearch() {
-//        binding.etSearch.doAfterTextChanged { text ->
-//            viewModel.setSearchQuery(text?.toString().orEmpty())
-//        }
-//    }
-
     private fun setupSearch() = binding.etSearch.doAfterTextChanged {
         viewModel.search(it.toString())
     }
@@ -66,13 +54,6 @@ class StoresFragment : Fragment() {
     private fun setupClickListeners() = binding.icBack.setOnClickListener {
         findNavController().navigateUp()
     }
-
-//    private fun observeViewModel() = with(viewModel.filteredStores){
-//       observe(viewLifecycleOwner) { stores ->
-//            storeAdapter.submitList(stores)
-//            binding.progressBar.visibility = View.GONE
-//        }
-//    }
 
     private fun observeViewModel() = with(viewModel) {
         uiState.observe(viewLifecycleOwner) { state ->

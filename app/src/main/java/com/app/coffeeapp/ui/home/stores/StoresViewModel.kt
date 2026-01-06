@@ -20,15 +20,6 @@ class StoresViewModel @Inject constructor(
 
     private var allStores: List<StoreUiModel> = emptyList()
 
-//    private val _stores = MutableLiveData<List<StoreUiModel>>()
-//    val stores: LiveData<List<StoreUiModel>> = _stores
-//
-//    private val _filteredStores = MutableLiveData<List<StoreUiModel>>()
-//    val filteredStores: LiveData<List<StoreUiModel>> = _filteredStores
-//
-//    private val _searchQuery = MutableLiveData<String>("")
-//    val searchQuery: LiveData<String> = _searchQuery
-
     init {
         loadStores()
     }
@@ -56,27 +47,4 @@ class StoresViewModel @Inject constructor(
             if (list.isEmpty()) StoresUiState.Empty()
             else StoresUiState.Success(list)
     }
-
-//    private fun loadStores() = viewModelScope.launch {
-//        _stores.value = storesUseCase()
-//        filterStores()
-//    }
-//
-//    fun setSearchQuery(query: String) {
-//        _searchQuery.value = query
-//        filterStores()
-//    }
-//
-//    private fun filterStores() {
-//        val allStores = _stores.value ?: return
-//        val query = _searchQuery.value ?: ""
-//
-//        val filtered = allStores.filter { store ->
-//            query.isEmpty() ||
-//                    store.name.contains(query, ignoreCase = true) ||
-//                    store.address.contains(query, ignoreCase = true)
-//        }
-//
-//        _filteredStores.value = filtered
-//    }
 }
