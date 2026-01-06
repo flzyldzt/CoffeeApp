@@ -13,7 +13,7 @@
     <string name="tv_kvkk">KVKK metnini okudum,onaylıyorum.</string>
     <string name="tv_explanation">E-ticaret sitemize giriş yaparken oluşturduğunuz şifreyi kullanabilirsiniz.</string>
     <string name="tv_membership_agreement">Üyelik ve Kullanıcı Sözleşmesini okudum, onaylıyorum.</string>
-    <string name="tv_password_condition">Şifreniz en az 1 sayı, 1 küçük harf ve 1 büyük harf içermeli ve 8-25 karakter arasında olmalı.</string>
+    <string name="tv_password_condition">Şifreniz en az 1 sayı, 1 küçük harf ve 1 büyük harf içermeli ve 8–25 karakter arasında olmalı.</string>
     <string name="tv_hello_name">Merhaba,Filiz</string>
     <string name="tv_upload_TL">TL Yükle</string>
     <string name="tv_coupons">Kuponlarım</string>

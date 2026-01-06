@@ -1,5 +1,6 @@
 package com.app.coffeeapp.ui.home.products.adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -47,6 +48,7 @@ class ProductAdapter(
         return ProductViewHolder(binding)
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
         val item = getItem(position)
 

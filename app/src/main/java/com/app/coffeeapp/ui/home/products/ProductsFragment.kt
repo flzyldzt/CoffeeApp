@@ -23,7 +23,7 @@ class ProductsFragment : Fragment() {
     private var _binding: FragmentProductsBinding? = null
     private val binding get() = _binding!!
     private val viewModel: ProductsViewModel by viewModels()
-    private val categories = ProductsCategory.values().toList()
+    private val categories = ProductsCategory.entries
 
     private val productAdapter by lazy {
         ProductAdapter(::onAddToCartClick)

@@ -5,7 +5,6 @@ import com.app.coffeeapp.data.api.model.campaigns.CampaignsResponse
 import com.app.coffeeapp.data.api.model.products.ProductResponse
 import com.app.coffeeapp.data.api.model.stores.StoreResponse
 import com.app.coffeeapp.data.api.model.storlyproducts.StorlyProductsResponse
-import com.app.coffeeapp.domain.storlyproducts.StorlyProductsUiModel
 import retrofit2.http.GET
 
 interface ApiService {

@@ -61,7 +61,7 @@
             android:orientation="horizontal"
             android:paddingHorizontal="@dimen/padding_16dp">
 
-            <ImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="@dimen/icon_size_small_24dp"
                 android:layout_height="@dimen/icon_size_small_24dp"
                 android:src="@drawable/ic_search"
@@ -73,6 +73,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginStart="@dimen/margin_12dp"
                 android:layout_weight="1"
+                android:autofillHints=""
                 android:background="@null"
                 android:hint="@string/tv_search_hint"
                 android:imeOptions="actionSearch"

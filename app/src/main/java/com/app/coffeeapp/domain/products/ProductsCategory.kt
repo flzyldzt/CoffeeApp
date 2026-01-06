@@ -12,7 +12,7 @@ enum class ProductsCategory(
 
     companion object {
         fun fromDisplayName(displayName: String): ProductsCategory =
-            values().firstOrNull { it.displayName == displayName }
+            entries.firstOrNull { it.displayName == displayName }
                 ?: HOT_DRINKS
     }
 }

@@ -1,5 +1,6 @@
 package com.app.coffeeapp.ui.home.stores.adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -37,6 +38,7 @@ class StoreAdapter(
 
         private val decimalFormat = DecimalFormat("#,##0.00")
 
+        @SuppressLint("SetTextI18n")
         fun bind(item: StoreUiModel) = with(binding) {
             tvStoreName.text = item.name
             tvAddress.text = item.address
