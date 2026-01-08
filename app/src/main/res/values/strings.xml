@@ -35,6 +35,15 @@
     <string name="tv_open">Açık</string>
     <string name="tv_favorite">Favori</string>
     <string name="tv_not_favorite">Favori ürününüz bulunmamaktadır.</string>
+    <string name="tv_store_name">Ankara Kızılay</string>
+    <string name="tv_store_address">Mesrutiyet Mah. Kizilay Karanfil Sokak No:42A Çankaya/Ankara</string>
+    <string name="tv_directions">Yol Tarifi</string>
+    <string name="tv_working_hours">Çalışma Saatleri</string>
+    <string name="tv_mid_week">Hafta İçi</string>
+    <string name="tv_weekend">Hafta Sonu</string>
+    <string name="tv_mid_week_hours">"07:00 – 02:00"</string>
+    <string name="tv_weekend_hours">"10:00 – 00:00"</string>
+    <string name="tv_features">Özellikler</string>
 
     <!-- Edittext -->
     <string name="et_name">Ad</string>
@@ -62,4 +71,5 @@
     <string name="tab_stores">Mağazalar</string>
     <string name="tab_selling">Sipariş Ver</string>
     <string name="tab_more">Diğer</string>
+
 </resources>

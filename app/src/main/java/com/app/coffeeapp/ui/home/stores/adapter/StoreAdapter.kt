@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.app.coffeeapp.R
 import com.app.coffeeapp.databinding.ItemStoreBinding
 import com.app.coffeeapp.domain.stores.StoreUiModel
-import com.app.coffeeapp.ui.home.stores.StoreWithFavoriteState
+import com.app.coffeeapp.ui.home.stores.adapter.model.StoreWithFavoriteState
 import java.text.DecimalFormat
 
 class StoreAdapter(

@@ -8,22 +8,12 @@ import androidx.lifecycle.viewModelScope
 import com.app.coffeeapp.domain.favorites.FavoritesUseCase
 import com.app.coffeeapp.domain.stores.StoreUiModel
 import com.app.coffeeapp.domain.stores.StoresUseCase
+import com.app.coffeeapp.ui.home.stores.adapter.model.StoreWithFavoriteState
+import com.app.coffeeapp.ui.home.stores.state.StoresUiState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import javax.inject.Inject
-
-data class StoreWithFavoriteState(
-    val store: StoreUiModel,
-    val isFavorite: Boolean
-)
-
-sealed class StoresUiState {
-    object Loading : StoresUiState()
-    data class Success(val stores: List<StoreWithFavoriteState>) : StoresUiState()
-    data class Empty(val message: String = "Mağaza bulunamadı") : StoresUiState()
-    data class Error(val message: String) : StoresUiState()
-}
 
 @HiltViewModel
 class StoresViewModel @Inject constructor(

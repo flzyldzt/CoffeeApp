@@ -6,18 +6,14 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.app.coffeeapp.domain.favorites.FavoritesUseCase
-import com.app.coffeeapp.domain.selling.SellingUiModel
 import com.app.coffeeapp.domain.selling.SellingCategory
+import com.app.coffeeapp.domain.selling.SellingUiModel
 import com.app.coffeeapp.domain.selling.SellingUseCase
+import com.app.coffeeapp.ui.home.selling.adapter.model.ProductWithFavoriteState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import javax.inject.Inject
-
-data class ProductWithFavoriteState(
-    val product: SellingUiModel,
-    val isFavorite: Boolean
-)
 
 @HiltViewModel
 class SellingViewModel @Inject constructor(

@@ -108,8 +108,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.favoritesFragment -> {
                     toolbar.setProperties(
                         ToolbarProperties(
-                            type = ToolbarType.TITLE_ONLY,
-                            title = "Favorites",
+                            type = ToolbarType.GONE,
                         )
                     )
                     bottomVisibility(true)
@@ -119,8 +118,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.sellingFragment -> {
                     toolbar.setProperties(
                         ToolbarProperties(
-                            type = ToolbarType.TITLE_ONLY,
-                            title = "Ürünler",
+                            type = ToolbarType.GONE,
                         )
                     )
                     bottomVisibility(true)
@@ -130,8 +128,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.storesFragment -> {
                     toolbar.setProperties(
                         ToolbarProperties(
-                            type = ToolbarType.TITLE_ONLY,
-                            title = "Mağazalar",
+                            type = ToolbarType.GONE,
                         )
                     )
                     bottomVisibility(true)
@@ -142,7 +139,7 @@ class MainActivity : AppCompatActivity() {
                     toolbar.setProperties(
                         ToolbarProperties(
                             type = ToolbarType.BACK_WITH_TITLE,
-                            title = "Kampanyalar",
+                            title = getString(R.string.tv_campaigns),
                         )
                     )
                     bottomVisibility(false)
@@ -152,7 +149,7 @@ class MainActivity : AppCompatActivity() {
                     toolbar.setProperties(
                         ToolbarProperties(
                             type = ToolbarType.BACK_WITH_TITLE,
-                            title = "Duyurular",
+                            title = getString(R.string.tv_announcements),
                         )
                     )
                     bottomVisibility(false)

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_bg_color">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_16dp"
+        app:cardCornerRadius="@dimen/margin_16dp"
+        app:cardElevation="@dimen/elevation_4dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding_16dp">
+
+            <TextView
+                android:id="@+id/tvStoreName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/tv_store_name" />
+
+            <TextView
+                android:id="@+id/tvAddress"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_8dp"
+                android:textColor="@color/gray"
+                app:layout_constraintEnd_toStartOf="@id/ivDirections"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvStoreName"
+                tools:text="@string/tv_store_address" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivDirections"
+                android:layout_width="@dimen/icon_size_small_24dp"
+                android:layout_height="@dimen/icon_size_small_24dp"
+                android:src="@drawable/ic_navigation"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvWorkingHoursTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/tv_working_hours"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvAddress" />
+
+            <TextView
+                android:id="@+id/tvMidWeek"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_8dp"
+                android:text="@string/tv_mid_week"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvWorkingHoursTitle" />
+
+            <TextView
+                android:id="@+id/tvWeekend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_8dp"
+                android:text="@string/tv_weekend"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvMidWeek" />
+
+            <TextView
+                android:id="@+id/tvMidWeekHour"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_mid_week_hours"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tvMidWeek" />
+
+            <TextView
+                android:id="@+id/tvWeekendHour"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_weekend_hours"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tvWeekend" />
+
+            <TextView
+                android:id="@+id/tvFeaturesTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_16dp"
+                android:text="@string/tv_features"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvWeekend" />
+
+            <TextView
+                android:id="@+id/tvFeatures"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvFeaturesTitle" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.core.widget.NestedScrollView>

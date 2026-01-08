@@ -10,8 +10,7 @@
     <com.app.coffeeapp.util.toolbar.ToolbarView
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/default_toolbar_height"
-        android:visibility="gone"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

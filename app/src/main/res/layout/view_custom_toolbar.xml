@@ -5,7 +5,7 @@
     android:id="@+id/toolbar"
     android:layout_width="match_parent"
     android:layout_height="@dimen/default_toolbar_height"
-    android:background="@color/app_bg_color">
+    android:background="@color/red">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/ivBack"
@@ -37,7 +37,6 @@
         android:layout_height="wrap_content"
         android:textColor="@android:color/black"
         android:textSize="@dimen/text_size_16sp"
-        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

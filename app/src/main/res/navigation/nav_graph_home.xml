@@ -42,12 +42,22 @@
         android:id="@+id/storesFragment"
         android:name="com.app.coffeeapp.ui.home.stores.StoresFragment"
         android:label="StoresFragment"
-        tools:layout="@layout/fragment_stores" />
+        tools:layout="@layout/fragment_stores" >
+
+        <action
+            android:id="@+id/action_storesFragment_to_storesDetailFragment"
+            app:destination="@id/storesDetailFragment" />
+
+    </fragment>
 
     <fragment
         android:id="@+id/favoritesFragment"
         android:name="com.app.coffeeapp.ui.home.favorites.FavoritesFragment"
         android:label="FavoritesFragment"
         tools:layout="@layout/fragment_favorites" />
+    <fragment
+        android:id="@+id/storesDetailFragment"
+        android:name="com.app.coffeeapp.ui.home.stores.storesdetail.StoresDetailFragment"
+        android:label="StoresDetailFragment" />
 
 </navigation>

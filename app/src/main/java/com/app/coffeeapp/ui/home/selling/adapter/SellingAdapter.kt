@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.app.coffeeapp.R
 import com.app.coffeeapp.databinding.ItemSellingBinding
 import com.app.coffeeapp.domain.selling.SellingUiModel
-import com.app.coffeeapp.ui.home.selling.ProductWithFavoriteState
+import com.app.coffeeapp.ui.home.selling.adapter.model.ProductWithFavoriteState
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import java.text.DecimalFormat
