@@ -1,4 +1,4 @@
-package com.app.coffeeapp.ui.home.stores.adapter
+package com.app.coffeeapp.ui.home.favorites.adapter
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -10,26 +10,25 @@ import androidx.recyclerview.widget.RecyclerView
 import com.app.coffeeapp.R
 import com.app.coffeeapp.databinding.ItemStoreBinding
 import com.app.coffeeapp.domain.stores.StoreUiModel
-import com.app.coffeeapp.ui.home.stores.StoreWithFavoriteState
 import java.text.DecimalFormat
 
-class StoreAdapter(
-    private val onDetailClick: (StoreUiModel) -> Unit,
-    private val onFavoriteClick: (StoreUiModel, Boolean) -> Unit
-) : ListAdapter<StoreWithFavoriteState, StoreAdapter.StoreViewHolder>(DIFF_CALLBACK) {
+class FavoriteStoreAdapter(
+    private val onStoreClick: (Int) -> Unit,
+    private val onFavoriteClick: (Int) -> Unit
+) : ListAdapter<StoreUiModel, FavoriteStoreAdapter.StoreViewHolder>(DIFF_CALLBACK) {
 
     companion object {
-        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<StoreWithFavoriteState>() {
+        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<StoreUiModel>() {
             override fun areItemsTheSame(
-                oldItem: StoreWithFavoriteState,
-                newItem: StoreWithFavoriteState
+                oldItem: StoreUiModel,
+                newItem: StoreUiModel
             ): Boolean {
-                return oldItem.store.id == newItem.store.id
+                return oldItem.id == newItem.id
             }
 
             override fun areContentsTheSame(
-                oldItem: StoreWithFavoriteState,
-                newItem: StoreWithFavoriteState
+                oldItem: StoreUiModel,
+                newItem: StoreUiModel
             ): Boolean {
                 return oldItem == newItem
             }
@@ -43,35 +42,24 @@ class StoreAdapter(
         private val decimalFormat = DecimalFormat("#,##0.00")
 
         @SuppressLint("SetTextI18n")
-        fun bind(itemWithState: StoreWithFavoriteState) = with(binding) {
-            val item = itemWithState.store
-            val isFavorite = itemWithState.isFavorite
-            
+        fun bind(item: StoreUiModel) = with(binding) {
             tvStoreName.text = item.name
             tvAddress.text = item.address
             tvDistance.text = "${decimalFormat.format(item.distance)} km"
             tvOpeningHours.text = item.openingHours
 
-            updateFavoriteIcon(isFavorite)
-            
-            root.setOnClickListener {
-                onDetailClick(item)
-            }
-            
-            imgFavorite.setOnClickListener {
-                val newFavoriteState = !isFavorite
-                updateFavoriteIcon(newFavoriteState)
-                onFavoriteClick(item, newFavoriteState)
-            }
-        }
-        
-        private fun updateFavoriteIcon(isFavorite: Boolean) {
-            binding.imgFavorite.setColorFilter(
-                ContextCompat.getColor(
-                    binding.root.context,
-                    if (isFavorite) R.color.app_main_color else R.color.gray
-                )
+            // Set favorite icon as filled
+            imgFavorite.setColorFilter(
+                ContextCompat.getColor(root.context, R.color.app_main_color)
             )
+
+            root.setOnClickListener {
+                onStoreClick(item.id)
+            }
+
+            imgFavorite.setOnClickListener {
+                onFavoriteClick(item.id)
+            }
         }
     }
 
@@ -88,3 +76,4 @@ class StoreAdapter(
         holder.bind(getItem(position))
     }
 }
+

@@ -15,6 +15,7 @@
     <string name="tv_membership_agreement">Üyelik ve Kullanıcı Sözleşmesini okudum, onaylıyorum.</string>
     <string name="tv_password_condition">Şifreniz en az 1 sayı, 1 küçük harf ve 1 büyük harf içermeli ve 8–25 karakter arasında olmalı.</string>
     <string name="tv_hello_name">Merhaba,Filiz</string>
+    <string name="tv_home_page">Anasayfa</string>
     <string name="tv_upload_TL">TL Yükle</string>
     <string name="tv_coupons">Kuponlarım</string>
     <string name="tv_giftcards">GiftCards</string>
@@ -30,9 +31,10 @@
     <string name="tv_category_coffee_varieties">Kahve Çeşitleri</string>
     <string name="tv_category_desserts">Tatlılar</string>
     <string name="tv_category_diet_foods">Diyetlik Yemekler</string>
-    <string name="tv_detail">Detay &gt;</string>
     <string name="tv_closed">Kapalı</string>
     <string name="tv_open">Açık</string>
+    <string name="tv_favorite">Favori</string>
+    <string name="tv_not_favorite">Favori ürününüz bulunmamaktadır.</string>
 
     <!-- Edittext -->
     <string name="et_name">Ad</string>
@@ -56,7 +58,7 @@
 
     <!-- Bottom View Name-->
     <string name="tab_dashboard">Anasayfa</string>
-    <string name="tab_products">Ürünler</string>
+    <string name="tab_favorites">Favoriler</string>
     <string name="tab_stores">Mağazalar</string>
     <string name="tab_selling">Sipariş Ver</string>
     <string name="tab_more">Diğer</string>

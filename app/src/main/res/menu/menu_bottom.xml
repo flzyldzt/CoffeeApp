@@ -7,9 +7,9 @@
         android:title="@string/tab_dashboard" />
 
     <item
-        android:id="@+id/menuProduct"
-        android:icon="@drawable/ic_coffee"
-        android:title="@string/tab_products" />
+        android:id="@+id/menuFavorites"
+        android:icon="@drawable/ic_favorite"
+        android:title="@string/tab_favorites" />
 
     <item
         android:id="@+id/menuSelling"

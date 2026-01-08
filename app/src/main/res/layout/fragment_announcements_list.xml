@@ -6,41 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.dashboard.announcements.AnnouncementsListFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/layoutHeader"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:background="@color/white"
-        android:paddingHorizontal="@dimen/padding_16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/icBack"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:contentDescription="@string/tv_back"
-            android:src="@drawable/ic_arrow_back"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tvAnnouncements"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/tv_announcements"
-            android:textColor="@color/black"
-            android:textSize="@dimen/text_size_20sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvAnnouncementsList"
         android:layout_width="match_parent"
@@ -53,7 +18,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/layoutHeader"
-        tools:listitem="@layout/item_announcement" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:listitem="@layout/item_announcement"
+        android:layout_marginTop="@dimen/margin_16dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

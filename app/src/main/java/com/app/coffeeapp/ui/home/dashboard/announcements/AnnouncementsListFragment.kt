@@ -43,13 +43,6 @@ class AnnouncementsListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setupRecyclerView()
         observeViewModel()
-        click()
-    }
-
-    private fun click() = with(binding) {
-        icBack.setOnClickListener {
-            findNavController().navigateUp()
-        }
     }
 
     private fun setupRecyclerView() = binding.rvAnnouncementsList.apply {

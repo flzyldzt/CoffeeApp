@@ -1,8 +1,8 @@
-package com.app.coffeeapp.data.api.model.products
+package com.app.coffeeapp.data.api.model.selling
 
 import com.google.gson.annotations.SerializedName
 
-data class ProductResponse(
+data class SellingResponse(
     @SerializedName("id")
     val id: Int,
 

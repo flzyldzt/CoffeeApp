@@ -14,7 +14,6 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/padding_12dp">
 
-        <!-- Ürün Resmi -->
         <ImageView
             android:id="@+id/imgProduct"
             android:layout_width="0dp"
@@ -26,12 +25,12 @@
             app:layout_constraintEnd_toEndOf="parent"
             tools:src="@drawable/img_coffee_cup" />
 
-        <!-- Ürün Adı -->
         <TextView
             android:id="@+id/tvProductName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_12dp"
+            android:layout_marginEnd="@dimen/margin_8dp"
             android:textColor="@color/black"
             android:textSize="@dimen/text_size_14sp"
             android:textStyle="bold"
@@ -39,10 +38,23 @@
             android:ellipsize="end"
             app:layout_constraintTop_toBottomOf="@id/imgProduct"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/imgFavorite"
             tools:text="Türk Kahvesi" />
 
-        <!-- Fiyat -->
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgFavorite"
+            android:layout_width="@dimen/icon_size_small_24dp"
+            android:layout_height="@dimen/icon_size_small_24dp"
+            android:layout_marginTop="@dimen/margin_12dp"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/ic_favorite"
+            android:contentDescription="@string/tv_favorite"
+            app:layout_constraintTop_toBottomOf="@id/imgProduct"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:tint="@color/gray" />
+
         <TextView
             android:id="@+id/tvPrice"
             android:layout_width="wrap_content"
@@ -55,7 +67,6 @@
             app:layout_constraintStart_toStartOf="parent"
             tools:text="45,00 ₺" />
 
-        <!-- Sepete Ekle Butonu -->
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnAddToCart"
             android:layout_width="0dp"

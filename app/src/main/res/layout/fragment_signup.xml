@@ -6,31 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".ui.authentication.signup.SignupFragment">
 
-    <TextView
-        android:id="@+id/tvSignUp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_10dp"
-        android:text="@string/tv_signup"
-        android:textColor="@color/black"
-        android:textSize="@dimen/text_size_20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/margin_16dp"
-        android:layout_marginTop="@dimen/margin_20dp"
+        android:layout_marginTop="@dimen/margin_16dp"
         app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="@dimen/radius_16dp"
         app:cardElevation="@dimen/elevation_6dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvSignUp">
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -39,16 +26,16 @@
             android:padding="@dimen/padding_10dp">
 
             <com.google.android.material.textfield.TextInputLayout
+                style="@style/Custom_TextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_4dp"
                 android:hint="@string/et_name"
                 android:inputType="text"
-                style="@style/Custom_TextInputLayout"
-                app:startIconDrawable="@drawable/ic_person"
                 app:expandedHintEnabled="false"
                 app:hintAnimationEnabled="false"
-                app:hintEnabled="true">
+                app:hintEnabled="true"
+                app:startIconDrawable="@drawable/ic_person">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etName"
@@ -57,15 +44,15 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                style="@style/Custom_TextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text"
                 android:layout_marginTop="@dimen/margin_16dp"
                 android:hint="@string/et_surname"
-                style="@style/Custom_TextInputLayout"
-                app:hintEnabled="true"
+                android:inputType="text"
                 app:expandedHintEnabled="false"
                 app:hintAnimationEnabled="false"
+                app:hintEnabled="true"
                 app:startIconDrawable="@drawable/ic_card">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -75,15 +62,15 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                style="@style/Custom_TextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_16dp"
                 android:hint="@string/et_email"
-                style="@style/Custom_TextInputLayout"
-                app:startIconDrawable="@drawable/ic_email"
                 app:expandedHintEnabled="false"
                 app:hintAnimationEnabled="false"
-                app:hintEnabled="true">
+                app:hintEnabled="true"
+                app:startIconDrawable="@drawable/ic_email">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etEmail"
@@ -92,15 +79,15 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                style="@style/Custom_TextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_16dp"
                 android:hint="@string/et_birth"
-                app:startIconDrawable="@drawable/ic_date"
                 app:expandedHintEnabled="false"
                 app:hintAnimationEnabled="false"
                 app:hintEnabled="true"
-                style="@style/Custom_TextInputLayout">
+                app:startIconDrawable="@drawable/ic_date">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etBirth"
@@ -111,18 +98,18 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/tilPassword"
+                style="@style/Custom_TextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_16dp"
+                android:hint="@string/et_password"
                 android:inputType="textPassword"
                 app:endIconMode="password_toggle"
-                style="@style/Custom_TextInputLayout"
                 app:endIconTint="@color/gray"
-                app:startIconDrawable="@drawable/ic_lock"
-                android:hint="@string/et_password"
                 app:expandedHintEnabled="false"
                 app:hintAnimationEnabled="false"
-                app:hintEnabled="true">
+                app:hintEnabled="true"
+                app:startIconDrawable="@drawable/ic_lock">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etPassword"
@@ -131,18 +118,18 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilPasswordConfirm"
+                style="@style/Custom_TextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/tilPasswordConfirm"
                 android:layout_marginTop="@dimen/margin_16dp"
                 android:hint="@string/et_again_password"
+                android:inputType="textPassword"
                 app:endIconMode="password_toggle"
-                style="@style/Custom_TextInputLayout"
                 app:endIconTint="@color/gray"
                 app:expandedHintEnabled="false"
                 app:hintAnimationEnabled="false"
                 app:hintEnabled="true"
-                android:inputType="textPassword"
                 app:startIconDrawable="@drawable/ic_lock">
 
                 <com.google.android.material.textfield.TextInputEditText

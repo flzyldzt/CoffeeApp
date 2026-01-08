@@ -1,37 +1,37 @@
 package com.app.coffeeapp.data.mockdata
 
-import com.app.coffeeapp.data.api.model.products.ProductResponse
-import com.app.coffeeapp.domain.products.ProductsCategory
+import com.app.coffeeapp.data.api.model.selling.SellingResponse
+import com.app.coffeeapp.domain.selling.SellingCategory
 
-object DummyProductDataSource {
+object DummySellingDataSource {
 
-    fun getProducts(): List<ProductResponse> = buildList {
+    fun getProducts(): List<SellingResponse> = buildList {
         var id = 1
 
-        addAll(createProducts(id, hotDrinks(), ProductsCategory.HOT_DRINKS).also { id += it.size })
+        addAll(createProducts(id, hotDrinks(), SellingCategory.HOT_DRINKS).also { id += it.size })
         addAll(
             createProducts(
                 id,
                 coldDrinks(),
-                ProductsCategory.COLD_DRINKS
+                SellingCategory.COLD_DRINKS
             ).also { id += it.size })
         addAll(
             createProducts(
                 id,
                 coffeeVarieties(),
-                ProductsCategory.COFFEE_VARIETIES
+                SellingCategory.COFFEE_VARIETIES
             ).also { id += it.size })
-        addAll(createProducts(id, desserts(), ProductsCategory.DESSERTS).also { id += it.size })
-        addAll(createProducts(id, dietFoods(), ProductsCategory.DIET_FOODS))
+        addAll(createProducts(id, desserts(), SellingCategory.DESSERTS).also { id += it.size })
+        addAll(createProducts(id, dietFoods(), SellingCategory.DIET_FOODS))
     }
 
     private fun createProducts(
         startId: Int,
         names: List<String>,
-        category: ProductsCategory
-    ): List<ProductResponse> =
+        category: SellingCategory
+    ): List<SellingResponse> =
         names.mapIndexed { index, name ->
-            ProductResponse(
+            SellingResponse(
                 id = startId + index,
                 name = name,
                 price = category.basePrice + index * 1.5,

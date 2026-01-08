@@ -4,16 +4,18 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.app.coffeeapp.databinding.FragmentStoresBinding
 import com.app.coffeeapp.domain.stores.StoreUiModel
 import com.app.coffeeapp.ui.home.stores.adapter.StoreAdapter
+import com.app.coffeeapp.util.showToast
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class StoresFragment : Fragment() {
@@ -23,7 +25,7 @@ class StoresFragment : Fragment() {
     private val viewModel: StoresViewModel by viewModels()
 
     private val storeAdapter by lazy {
-        StoreAdapter(::onDetailClick)
+        StoreAdapter(::onDetailClick, ::onFavoriteClick)
     }
 
     override fun onCreateView(
@@ -38,7 +40,6 @@ class StoresFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setupRecyclerView()
         setupSearch()
-        setupClickListeners()
         observeViewModel()
     }
 
@@ -49,10 +50,6 @@ class StoresFragment : Fragment() {
 
     private fun setupSearch() = binding.etSearch.doAfterTextChanged {
         viewModel.search(it.toString())
-    }
-
-    private fun setupClickListeners() = binding.icBack.setOnClickListener {
-        findNavController().navigateUp()
     }
 
     private fun observeViewModel() = with(viewModel) {
@@ -80,12 +77,18 @@ class StoresFragment : Fragment() {
     }
 
     private fun onDetailClick(store: StoreUiModel) {
-        Toast.makeText(
-            requireContext(),
-            "${store.name} detayları",
-            Toast.LENGTH_SHORT
-        ).show()
+        requireContext().showToast("${store.name} detayları")
         // TODO: Store detail sayfasına yönlendirme yapılacak
+    }
+    
+    private fun onFavoriteClick(store: StoreUiModel, isFavorite: Boolean) {
+        viewModel.toggleFavorite(store, isFavorite)
+        val message = if (isFavorite) {
+            "${store.name} favorilere eklendi"
+        } else {
+            "${store.name} favorilerden çıkarıldı"
+        }
+        requireContext().showToast(message)
     }
 
     override fun onDestroyView() {

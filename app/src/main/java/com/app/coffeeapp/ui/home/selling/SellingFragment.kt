@@ -1,39 +1,41 @@
-package com.app.coffeeapp.ui.home.products
+package com.app.coffeeapp.ui.home.selling
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import com.app.coffeeapp.databinding.FragmentProductsBinding
-import com.app.coffeeapp.domain.products.ProductUiModel
-import com.app.coffeeapp.domain.products.ProductsCategory
-import com.app.coffeeapp.ui.home.products.adapter.ProductAdapter
+import com.app.coffeeapp.databinding.FragmentSellingBinding
+import com.app.coffeeapp.domain.selling.SellingUiModel
+import com.app.coffeeapp.domain.selling.SellingCategory
+import com.app.coffeeapp.ui.home.selling.adapter.SellingAdapter
+import com.app.coffeeapp.util.showToast
 import com.google.android.material.tabs.TabLayout
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class ProductsFragment : Fragment() {
+class SellingFragment : Fragment() {
 
-    private var _binding: FragmentProductsBinding? = null
+    private var _binding: FragmentSellingBinding? = null
     private val binding get() = _binding!!
-    private val viewModel: ProductsViewModel by viewModels()
-    private val categories = ProductsCategory.entries
+    private val viewModel: SellingViewModel by viewModels()
+    private val categories = SellingCategory.entries
 
-    private val productAdapter by lazy {
-        ProductAdapter(::onAddToCartClick)
+    private val sellingAdapter by lazy {
+        SellingAdapter(::onAddToCartClick, ::onFavoriteClick)
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentProductsBinding.inflate(inflater, container, false)
+        _binding = FragmentSellingBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -42,13 +44,12 @@ class ProductsFragment : Fragment() {
         setupRecyclerView()
         setupTabs()
         setupSearch()
-        setupClickListeners()
         observeViewModel()
     }
 
     private fun setupRecyclerView() = with(binding.rvProducts) {
         layoutManager = GridLayoutManager(requireContext(), 2)
-        adapter = productAdapter
+        adapter = sellingAdapter
     }
 
     private fun setupTabs() = with(binding.tabLayoutCategories) {
@@ -76,26 +77,26 @@ class ProductsFragment : Fragment() {
         }
     }
 
-    private fun setupClickListeners() = with(binding.icBack) {
-        setOnClickListener {
-            findNavController().navigateUp()
-        }
-    }
-
-    private fun observeViewModel() = with(viewModel. filteredProducts) {
-       observe(viewLifecycleOwner) { products ->
-            productAdapter.submitList(products)
+    private fun observeViewModel() = with(viewModel) {
+        filteredProducts.observe(viewLifecycleOwner) { products ->
+            sellingAdapter.submitList(products)
             binding.progressBar.visibility = View.GONE
         }
     }
 
-    private fun onAddToCartClick(product: ProductUiModel) {
-        Toast.makeText(
-            requireContext(),
-            "${product.name} sepete eklendi",
-            Toast.LENGTH_SHORT
-        ).show()
+    private fun onAddToCartClick(product: SellingUiModel) {
+        requireContext().showToast("${product.name} sepete eklendi")
         // TODO: Sepete ekleme işlemi burada yapılacak
+    }
+    
+    private fun onFavoriteClick(product: SellingUiModel, isFavorite: Boolean) {
+        viewModel.toggleFavorite(product, isFavorite)
+        val message = if (isFavorite) {
+            "${product.name} favorilere eklendi"
+        } else {
+            "${product.name} favorilerden çıkarıldı"
+        }
+        requireContext().showToast(message)
     }
 
     override fun onDestroyView() {

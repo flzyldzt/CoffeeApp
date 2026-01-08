@@ -43,13 +43,6 @@ class CampaignsListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setupRecycler()
         observeData()
-        click()
-    }
-
-    private fun click() = with(binding) {
-        icBack.setOnClickListener {
-            findNavController().navigateUp()
-        }
     }
 
     private fun setupRecycler() = binding.rvCampaignList.apply {

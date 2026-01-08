@@ -2,6 +2,7 @@
 <resources>
     <item name="spacing_0dp" type="dimen">0dp</item>
     <item name="default_bottom_height" type="dimen">70dp</item>
+    <item name="default_toolbar_height" type="dimen">56dp</item>
 
     <!--App Common Size-->
     <dimen name="common_view_height">56dp</dimen> <!--EditText,TextView-->

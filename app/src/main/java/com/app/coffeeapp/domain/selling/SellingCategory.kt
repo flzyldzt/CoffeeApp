@@ -1,6 +1,6 @@
-package com.app.coffeeapp.domain.products
+package com.app.coffeeapp.domain.selling
 
-enum class ProductsCategory(
+enum class SellingCategory(
     val displayName: String,
     val basePrice: Double
 ) {
@@ -11,7 +11,7 @@ enum class ProductsCategory(
     DIET_FOODS("Diyetlik Yemekler", 45.0);
 
     companion object {
-        fun fromDisplayName(displayName: String): ProductsCategory =
+        fun fromDisplayName(displayName: String): SellingCategory =
             entries.firstOrNull { it.displayName == displayName }
                 ?: HOT_DRINKS
     }

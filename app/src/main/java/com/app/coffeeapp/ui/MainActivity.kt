@@ -7,6 +7,8 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.app.coffeeapp.R
 import com.app.coffeeapp.databinding.ActivityMainBinding
+import com.app.coffeeapp.util.toolbar.ToolbarProperties
+import com.app.coffeeapp.util.toolbar.ToolbarType
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -20,11 +22,12 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        setupNavigation()
+        initNavigation()
         destinationChangedListener()
     }
 
-    private fun setupNavigation() {
+
+    private fun initNavigation() {
         navController = supportFragmentManager.findFragmentById(
             R.id.nav_host_fragment
         )?.findNavController()
@@ -39,14 +42,16 @@ class MainActivity : AppCompatActivity() {
                     }
                     true
                 }
-                R.id.menuProduct -> {
-                    if (currentDestination != R.id.productsFragment) {
-                        navController?.navigate(R.id.productsFragment)
+                R.id.menuFavorites -> {
+                    if (currentDestination != R.id.favoritesFragment) {
+                        navController?.navigate(R.id.favoritesFragment)
                     }
                     true
                 }
                 R.id.menuSelling -> {
-                    // TODO: Sipariş Ver sayfası eklenecek
+                    if (currentDestination != R.id.sellingFragment) {
+                        navController?.navigate(R.id.sellingFragment)
+                    }
                     true
                 }
                 R.id.menuStore -> {
@@ -67,15 +72,98 @@ class MainActivity : AppCompatActivity() {
     private fun destinationChangedListener() = with(binding) {
         navController?.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
-                R.id.splashFragment -> {
-                    bottomVisibility(isVisible = false)
+
+                R.id.splashFragment,
+                R.id.authenticationMainFragment,
+                R.id.loginFragment,
+                R.id.passwordFragment -> {
+                    toolbar.setProperties(
+                        ToolbarProperties(
+                            type = ToolbarType.GONE
+                        )
+                    )
+                    bottomVisibility(false)
                 }
 
-                R.id.authenticationMainFragment, R.id.loginFragment, R.id.signupFragment, R.id.passwordFragment -> {
-                    bottomVisibility(isVisible = false)
+                R.id.signupFragment -> {
+                    toolbar.setProperties(
+                        ToolbarProperties(
+                            type = ToolbarType.BACK_WITH_TITLE,
+                            title = getString(R.string.tv_signup),
+                        )
+                    )
+                    bottomVisibility(false)
+                }
+
+                R.id.dashboardFragment -> {
+                    toolbar.setProperties(
+                        ToolbarProperties(
+                            type = ToolbarType.GONE,
+                        )
+                    )
+                    bottomVisibility(true)
+                    updateBottomNavigationSelection(destination.id)
+                }
+
+                R.id.favoritesFragment -> {
+                    toolbar.setProperties(
+                        ToolbarProperties(
+                            type = ToolbarType.TITLE_ONLY,
+                            title = "Favorites",
+                        )
+                    )
+                    bottomVisibility(true)
+                    updateBottomNavigationSelection(destination.id)
+                }
+
+                R.id.sellingFragment -> {
+                    toolbar.setProperties(
+                        ToolbarProperties(
+                            type = ToolbarType.TITLE_ONLY,
+                            title = "Ürünler",
+                        )
+                    )
+                    bottomVisibility(true)
+                    updateBottomNavigationSelection(destination.id)
+                }
+
+                R.id.storesFragment -> {
+                    toolbar.setProperties(
+                        ToolbarProperties(
+                            type = ToolbarType.TITLE_ONLY,
+                            title = "Mağazalar",
+                        )
+                    )
+                    bottomVisibility(true)
+                    updateBottomNavigationSelection(destination.id)
+                }
+
+                R.id.campaignsListFragment -> {
+                    toolbar.setProperties(
+                        ToolbarProperties(
+                            type = ToolbarType.BACK_WITH_TITLE,
+                            title = "Kampanyalar",
+                        )
+                    )
+                    bottomVisibility(false)
+                }
+
+                R.id.announcementsListFragment -> {
+                    toolbar.setProperties(
+                        ToolbarProperties(
+                            type = ToolbarType.BACK_WITH_TITLE,
+                            title = "Duyurular",
+                        )
+                    )
+                    bottomVisibility(false)
                 }
 
                 else -> {
+                    toolbar.setProperties(
+                        ToolbarProperties(
+                            type = ToolbarType.GONE
+                        )
+                    )
                     bottomVisibility(isVisible = true)
                     updateBottomNavigationSelection(destination.id)
                 }
@@ -86,9 +174,9 @@ class MainActivity : AppCompatActivity() {
     private fun updateBottomNavigationSelection(destinationId: Int) {
         val menuItemId = when (destinationId) {
             R.id.dashboardFragment -> R.id.menuDashboard
-            R.id.productsFragment -> R.id.menuProduct
+            R.id.favoritesFragment -> R.id.menuFavorites
+            R.id.sellingFragment -> R.id.menuSelling
             R.id.storesFragment -> R.id.menuStore
-            R.id.menuSelling -> R.id.menuSelling
             R.id.menuMore -> R.id.menuMore
             else -> null
         }
@@ -100,4 +188,29 @@ class MainActivity : AppCompatActivity() {
     private fun bottomVisibility(isVisible: Boolean) {
         binding.bottomNavigationView.isVisible = isVisible
     }
+
+//    private fun setupRootToolbar(title: String) = with(binding) {
+//        toolbar.setProperties(
+//            ToolbarProperties(
+//                title = title,
+//                type = ToolbarType.TITLE_ONLY
+//            )
+//        )
+//    }
+//
+//    private fun setupDetailToolbar(title: String, showClose: Boolean = false) = with(binding) {
+//
+//        val type = if (showClose) {
+//            ToolbarType.BACK_WITH_CLOSE
+//        } else {
+//            ToolbarType.BACK_WITH_TITLE
+//        }
+//
+//        toolbar.setProperties(
+//            ToolbarProperties(
+//                title = title,
+//                type = type
+//            )
+//        )
+//    }
 }

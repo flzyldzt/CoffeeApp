@@ -33,15 +33,21 @@
         tools:layout="@layout/fragment_announcements_list" />
 
     <fragment
-        android:id="@+id/productsFragment"
-        android:name="com.app.coffeeapp.ui.home.products.ProductsFragment"
+        android:id="@+id/sellingFragment"
+        android:name="com.app.coffeeapp.ui.home.selling.SellingFragment"
         android:label="ProductsFragment"
-        tools:layout="@layout/fragment_products" />
+        tools:layout="@layout/fragment_selling" />
 
     <fragment
         android:id="@+id/storesFragment"
         android:name="com.app.coffeeapp.ui.home.stores.StoresFragment"
         android:label="StoresFragment"
         tools:layout="@layout/fragment_stores" />
+
+    <fragment
+        android:id="@+id/favoritesFragment"
+        android:name="com.app.coffeeapp.ui.home.favorites.FavoritesFragment"
+        android:label="FavoritesFragment"
+        tools:layout="@layout/fragment_favorites" />
 
 </navigation>

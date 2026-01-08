@@ -2,12 +2,12 @@ package com.app.coffeeapp.data.api
 
 import com.app.coffeeapp.data.api.model.announcements.AnnouncementsResponse
 import com.app.coffeeapp.data.api.model.campaigns.CampaignsResponse
-import com.app.coffeeapp.data.api.model.products.ProductResponse
+import com.app.coffeeapp.data.api.model.selling.SellingResponse
 import com.app.coffeeapp.data.api.model.stores.StoreResponse
 import com.app.coffeeapp.data.api.model.storlyproducts.StorlyProductsResponse
 import com.app.coffeeapp.data.mockdata.DummyAnnouncementDataSource
 import com.app.coffeeapp.data.mockdata.DummyCampaignDataSource
-import com.app.coffeeapp.data.mockdata.DummyProductDataSource
+import com.app.coffeeapp.data.mockdata.DummySellingDataSource
 import com.app.coffeeapp.data.mockdata.DummyStoreDataSource
 import com.app.coffeeapp.data.mockdata.DummyStorlyProductsDataSource
 import javax.inject.Inject
@@ -42,9 +42,9 @@ class ApiRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun getProducts(): List<ProductResponse> {
+    override suspend fun getProducts(): List<SellingResponse> {
         return if (useMock) {
-            DummyProductDataSource.getProducts()
+            DummySellingDataSource.getProducts()
         } else {
             apiService.getProducts()
         }
