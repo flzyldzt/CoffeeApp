@@ -25,9 +25,9 @@ class ToolbarView @JvmOverloads constructor(
 
     private fun initUi() = with(binding) {
         if (properties.type == ToolbarType.GONE) {
-            toolbar.isVisible = false
+            toolbarHomeMain.isVisible = false
         } else {
-            toolbar.isVisible = true
+            toolbarHomeMain.isVisible = true
             tvTitle.text = properties.title
 
             ivBack.isVisible = when (properties.type) {
@@ -47,7 +47,7 @@ class ToolbarView @JvmOverloads constructor(
             }
 
             properties.backgroundColor?.let {
-                toolbar.setBackgroundColor(
+                toolbarHomeMain.setBackgroundColor(
                     ContextCompat.getColor(context, it)
                 )
             }

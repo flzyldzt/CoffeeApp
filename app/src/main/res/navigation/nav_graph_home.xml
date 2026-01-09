@@ -3,19 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph_home"
-    app:startDestination="@id/dashboardFragment">
+    app:startDestination="@id/homeMainFragment">
 
     <fragment
-        android:id="@+id/dashboardFragment"
-        android:name="com.app.coffeeapp.ui.home.dashboard.DashboardFragment"
-        android:label="DashboardFragment">
+        android:id="@+id/homeMainFragment"
+        android:name="com.app.coffeeapp.ui.home.HomeMainFragment"
+        android:label="fragment_home_main"
+        tools:layout="@layout/fragment_home_main" >
 
         <action
-            android:id="@+id/action_dashboardFragment_to_announcementsListFragment"
+            android:id="@+id/action_homeMainFragment_to_announcementsListFragment"
             app:destination="@id/announcementsListFragment" />
 
         <action
-            android:id="@+id/action_dashboardFragment_to_campaignsListFragment"
+            android:id="@+id/action_homeMainFragment_to_campaignsListFragment"
             app:destination="@id/campaignsListFragment" />
 
     </fragment>
@@ -31,33 +32,5 @@
         android:name="com.app.coffeeapp.ui.home.dashboard.announcements.AnnouncementsListFragment"
         android:label="AnnouncementsListFragment"
         tools:layout="@layout/fragment_announcements_list" />
-
-    <fragment
-        android:id="@+id/sellingFragment"
-        android:name="com.app.coffeeapp.ui.home.selling.SellingFragment"
-        android:label="ProductsFragment"
-        tools:layout="@layout/fragment_selling" />
-
-    <fragment
-        android:id="@+id/storesFragment"
-        android:name="com.app.coffeeapp.ui.home.stores.StoresFragment"
-        android:label="StoresFragment"
-        tools:layout="@layout/fragment_stores" >
-
-        <action
-            android:id="@+id/action_storesFragment_to_storesDetailFragment"
-            app:destination="@id/storesDetailFragment" />
-
-    </fragment>
-
-    <fragment
-        android:id="@+id/favoritesFragment"
-        android:name="com.app.coffeeapp.ui.home.favorites.FavoritesFragment"
-        android:label="FavoritesFragment"
-        tools:layout="@layout/fragment_favorites" />
-    <fragment
-        android:id="@+id/storesDetailFragment"
-        android:name="com.app.coffeeapp.ui.home.stores.storesdetail.StoresDetailFragment"
-        android:label="StoresDetailFragment" />
 
 </navigation>

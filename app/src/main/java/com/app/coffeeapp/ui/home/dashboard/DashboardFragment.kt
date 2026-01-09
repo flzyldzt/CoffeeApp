@@ -160,13 +160,13 @@ class DashboardFragment : Fragment() {
 
     private fun navigateToCampaignList() {
         findNavController().navigate(
-            R.id.action_dashboardFragment_to_campaignsListFragment
+            R.id.action_homeMainFragment_to_campaignsListFragment
         )
     }
 
     private fun navigateToAnnouncementList() {
         findNavController().navigate(
-            R.id.action_dashboardFragment_to_announcementsListFragment
+            R.id.action_homeMainFragment_to_announcementsListFragment
         )
     }
 

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.home.HomeMainFragment">
+
+    <com.app.coffeeapp.util.toolbar.ToolbarView
+        android:id="@+id/toolbarHomeMain"
+        android:layout_width="@dimen/spacing_0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentHomeContainer"
+        android:layout_width="@dimen/spacing_0dp"
+        android:layout_height="@dimen/spacing_0dp"
+        android:background="@color/app_bg_color"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarHomeMain" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/default_bottom_height"
+        android:background="@color/app_bg_color"
+        app:elevation="@dimen/elevation_6dp"
+        app:itemIconTint="@color/selector_bottom_navigation_color"
+        app:itemTextColor="@color/selector_bottom_navigation_color"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/menu_bottom"
+        tools:visibility="visible" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
