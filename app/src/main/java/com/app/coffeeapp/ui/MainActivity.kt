@@ -185,29 +185,4 @@ class MainActivity : AppCompatActivity() {
     private fun bottomVisibility(isVisible: Boolean) {
         binding.bottomNavigationView.isVisible = isVisible
     }
-
-//    private fun setupRootToolbar(title: String) = with(binding) {
-//        toolbar.setProperties(
-//            ToolbarProperties(
-//                title = title,
-//                type = ToolbarType.TITLE_ONLY
-//            )
-//        )
-//    }
-//
-//    private fun setupDetailToolbar(title: String, showClose: Boolean = false) = with(binding) {
-//
-//        val type = if (showClose) {
-//            ToolbarType.BACK_WITH_CLOSE
-//        } else {
-//            ToolbarType.BACK_WITH_TITLE
-//        }
-//
-//        toolbar.setProperties(
-//            ToolbarProperties(
-//                title = title,
-//                type = type
-//            )
-//        )
-//    }
 }

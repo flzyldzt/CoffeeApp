@@ -6,13 +6,13 @@ import android.view.LayoutInflater
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
-import com.app.coffeeapp.databinding.ViewCustomToolbarBinding
+import com.app.coffeeapp.databinding.LayoutToolbarBinding
 
 class ToolbarView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : ConstraintLayout(context, attrs, defStyleAttr) {
 
-    private val binding = ViewCustomToolbarBinding.inflate(
+    private val binding = LayoutToolbarBinding.inflate(
         LayoutInflater.from(context), this, true
     )
 
